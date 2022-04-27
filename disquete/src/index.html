@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+  integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,700&display=swap" rel="stylesheet">
+  <title>Disquete Galaxico</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body>
+  <header id="portada" class="portada">
+    <img src="./img/logo.png"/>
+   <div id="menu">
+    <ul class="navegator"> 
+     <li ><a href ="#">CATEGORIA</a>
+       <ul id="categoria">
+        <li> <a id="kanto" href ="#">MUJERES</a></li>
+        <li> <a id="johto" href ="#">HOMBRES</a></li>
+        <li> <a id="johto" href ="#">NINOS</a></li>
+       </ul>
+    </li>
+      <li  > <a href ="#">ESTACION</a>
+        <ul id="estacion">
+          <li> <a id="water" href ="#">VERANO</a></li>
+          <li> <a id="fire" href ="#">INVIERNO</a></li>
+        </ul>
+      </li>
+      <li> <a href ="#">ORDENAR</a>
+        <ul class="submenu">
+           <li id="az"><a href="#">DE A - Z</a></li>
+           <li id="za"><a href="#">DE Z - A</a></li>
+         </ul>
+       </li>
+    </ul>
+   </div>
+      <div class="container-bg">
+        <input type="text" id="formulario" class="form-control" placeholder="buscar">
+        <button  id="boton">Buscar</button>
+        <ul id="resultado">
+        </ul>
+      </div>
+  </header>
+  <section id="pantalla1" class="pantalla1">
+  </section> 
+  <footer>
+  </footer>
+  <script src="./main.js" type="module"></script>
+</body>
+</html>
