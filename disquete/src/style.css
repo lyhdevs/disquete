@@ -1,10 +1,28 @@
+:root {
+  --rosa-oscuro: #D11E84;
+  --rosa-claro: #FAD5EA;
+  --lila-oscuro: #9B7AB1;
+  --lila-claro: #EDDCF6;
+}
+
+@font-face {
+  font-family: 'Aloja';
+  src: url("fonts/Aloja-extended.otf") format("opentype");
+}
+
 *{
   margin: 0;
   padding: 0;
 }
+
 html{
   height: 100%;
   font-family: arial;
+}
+
+body {
+  padding-top: 64px;
+  height: 100%;
 }
 
 .body  {
@@ -164,13 +182,8 @@ h3{
 h1{
   padding:40px;
   color:rgb(4, 4, 99);
-  -webkit-text-stroke: 2px black;
+/*   -webkit-text-stroke: 2px black; */
   font-family: sans-serif;
   text-align: center;
   font-size: 50px;
-  
-
 }
-
-
-
