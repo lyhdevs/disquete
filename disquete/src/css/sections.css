@@ -26,7 +26,6 @@
 }
   
 .home-section .container-fluid {
-    display: flex;
     justify-content: center;
     align-items: center;
   }
@@ -41,29 +40,37 @@
     justify-content: center;
     text-align: center;
     font-family: 'Aloja', 'Fredoka One', cursive;
-    font-size: 8.125rem;
+    font-size: 8.085rem;
     color: var(--lila-oscuro);
-  }
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border: 0;
+    border-radius: 25px;
+}
   
-  .col-title-image {
+.col-title-image {
     display: flex;
     text-align: center;
     justify-content: center;
-  }
+}
   
-  .col-title-image img{
+.col-title-image img{
     display: block;
     position: absolute;
     max-height: 100%;
-  }
+}
   
-  .socials a{
+.socials a{
     color: var(--lila-oscuro);
     padding: 0.5rem;
-  }
+}
   
-  .home-center {
+.home-center {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
+}
