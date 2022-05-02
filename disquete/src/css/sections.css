@@ -6,6 +6,10 @@
     font-size: 0.625rem;
 }
   
+.navbar-nav {
+    text-align: center;
+}
+
 .navbar-nav a {
     color: var(--rosa-oscuro);
 }
@@ -63,14 +67,57 @@
     position: absolute;
     max-height: 100%;
 }
-  
-.socials a{
-    color: var(--lila-oscuro);
-    padding: 0.5rem;
-}
-  
+
 .home-center {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+/* Social media icons*/
+.socials a{
+    color: var(--lila-oscuro);
+    padding: 0.5rem;
+}
+.socials a i:hover{
+    color: #6f5383;
+    transform: scale(1.4);
+}
+
+@media only screen and (max-width: 1425px) {
+    .big-heading {
+        font-size: 6.75rem;
+    }
+}
+
+@media only screen and (max-width: 1240px) {
+    .big-heading {
+        font-size: 5.125rem;
+    }
+}
+
+@media only screen and (max-width: 995px) {
+    .home-section{
+        min-height: auto;
+    }
+
+    .home-section .container-fluid{
+        padding: 3rem 2.125rem;
+    }
+
+    .home-center {
+        padding: 0;
+    }
+
+    .big-heading {
+        font-size: 3.5rem;
+    }
+
+    .col-title-image {
+        display: none;
+    }
+
+    .socials {
+        flex-direction: row;
+    }
 }
