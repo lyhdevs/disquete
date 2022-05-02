@@ -1,9 +1,12 @@
 export default {
-  "pokemon": [{
+  "ropa": [{
     "num": "001",
-    "name": "PANTALON SPAM ROJO",
+    "name": "ROJO",
+    "category": "mujeres",
+    "season": "verano",
+
     "tipo": {
-      "name": "PANTALON"
+      "sexo": "damas"
     },
     "about": "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
     "img": "https://res.cloudinary.com/disquete-galaxico/image/upload/v1651024333/prendas/Pantalo%CC%81n_RAM_Rojo_pkzdbn.png ",
@@ -12,14 +15,15 @@ export default {
       "weight": "6.9 kg"
     },
     "material": "algodon pima",
-    "tallas": "Standar",
-  
+    "tallas": "Standar",  
   },
   {
     "num": "002",
-    "name": "PANTALON SPAM PLOMO",
+    "name": "PLOMO",
+    "category": "mujeres",
+    "season": "verano",
     "tipo": {
-      "name": "PRENDA DE DAMA"
+      "sexo": "damas"
     },
     "about": "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
     "img": "https://res.cloudinary.com/disquete-galaxico/image/upload/v1651024333/prendas/Pantalo%CC%81n_RAM_Gris_f6qmoo.png ",
@@ -33,9 +37,11 @@ export default {
   },
   {
     "num": "003",
-    "name": "PANTALON SPAM PLOMO",
+    "name": "NEGRO",
+    "category": "hombres",
+    "season": "invierno",
     "tipo": {
-      "name": "PANTALON"
+      "sexo": "hombres"
     },
     "about": "Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. By soaking up the sun's rays, the seed grows progressively larger.",
     "img": "https://res.cloudinary.com/disquete-galaxico/image/upload/v1651024333/prendas/Pantalo%CC%81n_RAM_Negro_swyqb0.png ",
