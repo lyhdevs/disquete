@@ -1,3 +1,4 @@
+/* Variables */
 :root {
   --rosa-oscuro: #D11E84;
   --rosa-claro: #FAD5EA;
@@ -7,6 +8,7 @@
   --celeste-claro:#C5E5FA;
 }
 
+/* Estilo global */
 @font-face {
   font-family: 'Aloja';
   src: url("fonts/Aloja-extended.otf") format("opentype");
@@ -24,167 +26,14 @@ html{
 
 body {
   height: 100%;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-.body  {
-  width: 100%;
-  height: 100%;
-  background: white;
-  border-radius: 8px; 
-  display: flex;  
-  font-family: 'Roboto', sans-serif;
-}
-.pantalla1 {
-  width: 100%;
-  height: 100%;
-  background:rgb(255, 240, 249);
+section {
+  min-height: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
-.portada{
-    width: 100%;
-    background:url(./img/fondo.jpg);
-}
-
-.portada img {
-  display: flexbox;
-  width: 300px;
-  height:150px;
-  background: transparent;
-  margin: 0px 2px -49px 0;
-  display: flex;  
-}
-
-#menu{
-  margin:auto;
-  width: 500px;
-  font-family: arial,helvetica,sans-serif;
-  display: flexbox;
-}
 ul, ol{
-  list-style:none;
-}
-.navegator li a{
-  background-color:rgb(196, 6, 155);
-  color:white;
-  text-decoration:none;
-  padding: 10px 15px;
-  margin-right: 10px;
-  display:block;
-  border-radius: 10px;
-  display: flex;  
- 
- 
-}
-.navegator li a:hover{
-  background:#434343;
-  z-index: 10;
-}
-.navegator > li {
-  float:left;
-  z-index: 10;
-}
-.navegator li ul{
-  display:none;
-  position:absolute;
-  min-width:140px;
-  z-index: 10;
-}
-.navegator li:hover > ul {
-  display:block;
-}
-.navegator li ul li{
-  position:relative;
-}
-.navegator li ul li ul{
-  right:-140px;
-  top:0;
-}
-.container-bg{
-  padding:10px 15px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-#formulario{
-height: 25px;
-margin-right: 5px;
-border-radius: 5px;
-
-}
-#boton{
-height: 25px; 
-width: 70px;
-border-radius: 5px;
-background:rgb(252, 188, 230);
-
-}
-.front{
-  background-image:url(./img/cuadro.png);
-  border-radius: 15px;
-  border: solid 2px rgb(12, 12, 12);
-  width: 190px;
-  height: 267px;
-  color: rgb(3, 3, 3);
-  text-align: center;
-  margin: 30px 20px 20px 20px;
-  transition: all 500ms ease-out;
-  
-  box-shadow: 0px 15px 25px rgba(20, 9, 9, 0.829);
-  z-index: 2;
-  position: absolute;
-  
-}
-/* efecto hover a las tarjetas*/
-.front:hover {
- 
-  visibility: hidden;
-  transform: 10s;
-  
-}
-.back{
-  background-image:url(./img/cuadro.png);
-  border-radius: 15px;
-  border: solid 2px rgb(12, 12, 12);
-  width: 190px;
-  height: 267px;
-  color: rgb(3, 3, 3);
-  text-align: center;
-  margin: 30px 20px 20px 20px;
-  transition: all 500ms ease-out;
-  z-index: 1;
-  position: relative; 
-  
-}
-.back:hover {
-  transform: rotateY(180deg);
-  transform: 10s;
-  
-}
-.front img{
-  width: 100px;
-  margin: 40px 15px 20px 0;
- 
-}
-.back h3{
-  margin: 30px 0px 55px 15px; 
-}
-h3{
-  color:rgb(4, 4, 99);
-  font-family: sans-serif;
-  text-align: center;
-  font-size: 20px;
-
-}
-h1{
-  padding:40px;
-  color:rgb(4, 4, 99);
-/*   -webkit-text-stroke: 2px black; */
-  font-family: sans-serif;
-  text-align: center;
-  font-size: 50px;
+  list-style: none;
 }
