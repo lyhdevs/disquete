@@ -1,5 +1,5 @@
 import { ordenar, functionFilter, filtrar } from "./data.js";
-import data from "./data/ropa/ropa.js";
+import data from "../data/ropa/ropa.js";
 
 //Poblando Galería de Ropa
 function ropaDetalle(prendasResultado) {
