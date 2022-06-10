@@ -2,7 +2,6 @@
 .dg-navbar {
     background-color: var(--rosa-claro);
     color: var(--rosa-oscuro);
-    font-family: 'Josefin Sans', sans-serif;
     font-size: 0.625rem;
 }
   
@@ -18,7 +17,7 @@
     color: var(--lila-oscuro);
 }
 
-/* Home */
+/* Secciones */
 .container-fluid {
     padding: 0 3rem;
     justify-content: center;
@@ -30,12 +29,8 @@
     justify-content: center;
     text-align: center;
 }
-  
-.home-section {
-    min-height: 100%;
-    display: flex;
-}
-  
+
+/*** HOME SECTION ***/  
 .big-heading {
     justify-content: center;
     text-align: center;
@@ -80,6 +75,36 @@
     transform: scale(1.4);
 }
 
+/*** GALLERY SECTION ***/
+.gallery-section  {
+    display: grid;
+}
+.gallery-section .galeria-filtro {
+    height: auto;
+    margin-top: 40px;
+}
+
+.btn-darkpink, .btn-darkpink:hover {
+    background-color: var(--rosa-oscuro);
+    font-size: 0.77rem;
+    color: white;
+}
+
+.btn-darkpink:focus {
+    background-color: var(--rosa-claro);
+    color: var(--rosa-oscuro);
+}
+
+.dropdown-menu {
+    font-size: 0.77rem;
+}
+
+.btn-outline-darkpurple {
+    color: var(--lila-oscuro);
+    border-color: var(--lila-oscuro);
+}
+
+/*** MEDIA QUERY ***/
 @media only screen and (max-width: 1425px) {
     .big-heading {
         font-size: 6.75rem;
@@ -142,7 +167,6 @@
 }
 
 .mas-outfits-btn {
-    font-family: 'Josefin Sans';
     font-style: normal;
     font-weight: 700;
     line-height: 45px;
@@ -158,7 +182,6 @@
 .outfit-info {
     margin-top: 2rem;
     text-align: left;
-    font-family: 'Josefin Sans';
     font-size: 1.125rem;
 }
 
