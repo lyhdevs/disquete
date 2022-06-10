@@ -2,7 +2,6 @@
 .dg-navbar {
     background-color: var(--rosa-claro);
     color: var(--rosa-oscuro);
-    font-family: 'Josefin Sans', sans-serif;
     font-size: 0.625rem;
 }
   
@@ -18,28 +17,20 @@
     color: var(--lila-oscuro);
 }
 
-/* Home */
+/* Secciones */
 .container-fluid {
     padding: 0 3rem;
     justify-content: center;
-  }
-  
-.home-section {
-    min-height: 100%;
-    display: flex;
-}
-  
-.home-section .container-fluid {
-    justify-content: center;
     align-items: center;
-  }
-  
-.home-section .container-fluid .row {
+}
+
+.container-fluid .row {
     height: 100%;
     justify-content: center;
     text-align: center;
-  }
-  
+}
+
+/*** HOME SECTION ***/  
 .big-heading {
     justify-content: center;
     text-align: center;
@@ -84,6 +75,57 @@
     transform: scale(1.4);
 }
 
+/*** GALLERY SECTION ***/
+.gallery-section  {
+    display: grid;
+    align-content: space-evenly;
+}
+.gallery-section .galeria-filtro {
+    height: auto;
+    margin-top: 40px;
+}
+
+.btn-darkpink, .btn-darkpink:hover {
+    background-color: var(--rosa-oscuro);
+    font-size: 0.77rem;
+    color: white;
+}
+
+.btn-darkpink:focus {
+    background-color: var(--rosa-claro);
+    color: var(--rosa-oscuro);
+}
+
+.dropdown-menu {
+    font-size: 0.77rem;
+}
+
+.btn-outline-darkpurple {
+    color: var(--lila-oscuro);
+    border-color: var(--lila-oscuro);
+}
+
+.card-body h3{
+    font-size: 1.3rem;
+    color: var(--rosa-oscuro);
+}
+
+.card-body p{
+    font-size: 0.9rem;
+}
+
+.btn-comprar {
+    background-color: var(--lila-claro);
+    border-color: var(--lila-claro);
+    color: black;
+}
+
+.btn-comprar:hover, .btn-comprar:focus {
+    background-color: var(--lila-oscuro);
+    color: white;
+}
+
+/*** MEDIA QUERY ***/
 @media only screen and (max-width: 1425px) {
     .big-heading {
         font-size: 6.75rem;
@@ -120,4 +162,68 @@
     .socials {
         flex-direction: row;
     }
+}
+
+/*** OUTFITS SECTION ***/
+.services-section{
+    min-height: 100%;
+    display: flex;
+    background: var(--celeste-claro);
+}
+
+.services-section .container-fluid .row{
+    align-content: center;
+}
+
+.outfit-img {
+    width: 500px;
+    height: 500px;
+    filter: drop-shadow(-25px 20px 4px rgba(188, 217, 247, 0.06));
+    border-radius: 20px;
+}
+
+#carrouselOutfits .carousel-indicators {
+    position: inherit;
+    top: 10px;
+}
+
+.mas-outfits-btn {
+    font-style: normal;
+    font-weight: 700;
+    line-height: 45px;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+    color: #9B7AB1;
+}
+
+.mas-outfits-btn:hover {
+    color: #9CC2DC;
+}
+
+.outfit-info {
+    margin-top: 2rem;
+    text-align: left;
+    font-size: 1.125rem;
+}
+
+.outfit-info h4{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 70px;
+    color: var(--rosa-oscuro);
+}
+
+.outfit-info ul, .outfit-info p{
+    font-size: 1.075rem;
+}
+
+.rosa-btn {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: white;
+    background-color: var(--rosa-oscuro);
+    border: none;
+    border-radius: 20px;
+    padding: 3px 23px;
 }

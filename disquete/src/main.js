@@ -1,99 +1,178 @@
-import { ordenar, functionFilter } from "./data.js";
+import { ordenar, functionFilter, filtrar } from "./data.js";
 import data from "./data/ropa/ropa.js";
-//jalando data
+
+//Poblando Galería de Ropa
 function ropaDetalle(prendasResultado) {
   for (let j = 0; j < prendasResultado.length; j++) {
     let ropa = document.createElement("div");
+    ropa.setAttribute("id", `item-${prendasResultado[j].id}`);
+    ropa.classList.add("ropa-item");
     ropa.classList.add("col-md-4");
     ropa.innerHTML = `
-      <div class="card mb-4 box-shadow">
-        <img class="card-img-top" src="${prendasResultado[j].img}"/>
+      <div class="card mb-4 box-shadow card-front" id="card-${prendasResultado[j].id}-f">
+          <img class="card-img-top" src="${prendasResultado[j].img}"/>
           <div class="card-body">
-          <h3>${prendasResultado[j].name}</h3> 
-          <h3>${prendasResultado[j].category}</h3> 
-          <h3>${prendasResultado[j].season}</h3> 
-         
-         
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-info">Ver + Info</button>
-              <button type="button" class="btn btn-sm btn-light">Comprar</button>
+            <h3>${prendasResultado[j].name}</h3> 
+            <p>${prendasResultado[j].description}</p> 
+            <div class="justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-light btn-mas-info" value="${prendasResultado[j].id}">Ver + Info</button>
+                <a type="button" class="btn btn-sm btn-comprar" target="_blank" value="${prendasResultado[j].id}">Comprar</a>
+              </div>
             </div>
-            <small class="text-muted">9 mins</small>
-          </div>
         </div>
-        <div class="modal">
-        <h3>${prendasResultado[j].name}</h3> 
-          <h3>${prendasResultado[j].category}</h3> 
-          <h3>${prendasResultado[j].season}</h3> 
+      </div>
+
+      <div class="card mb-4 box-shadow card-back" style="display: none;" id="card-${prendasResultado[j].id}-b">
+        <div class="card-body">
+          <h3>${prendasResultado[j].name}</h3>
+          <p>Descripción: ${prendasResultado[j].description}</p>
+          <ul>
+            <li>Material: ${prendasResultado[j].material}</li>
+            <li>Tallas disponibles: ${prendasResultado[j].tallas}</li>
+          </ul>
+          <p>Enviamos a todo Perú 🇵🇪</p>
+          <div class="justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-light btn-mas-info" value="${prendasResultado[j].id}">Lo amo</button>
+              </div>
+            </div>
         </div>
       </div>
          `;
     document.getElementById("galeria-dg").appendChild(ropa);
   }
 }
+
 ropaDetalle(data.ropa);
-console.table(data.ropa);
 
-   
-//click a ordenar az
-document.getElementById("az").addEventListener("click", function () {
-  //ordenar data
-  let ordenAz = ordenar.az(data.ropa);
-  //limpiar pantalla
+function poblarGaleriaRopa(db){
+  //Limpiar y Poblar Galería
+  limpiarBusqueda();
+  ropaDetalle(db);
+
+  //Agregar funcionalidades a cada tarjeta de prenda
+  agregarBtnComprar();
+  agregarBtnInfo();
+}
+
+//Buscar una prenda por nombre, categoría o temporada
+const resultado = document.getElementById("resultado");
+const btnBuscar = document.querySelector("#btn-buscar");
+
+btnBuscar.addEventListener("click", (e) => {
+  e.preventDefault();
+  resultado.innerHTML = "";
+  let item = document.getElementById("item-buscado").value.toLowerCase();
+
+  if (item) {
+    let buscados = functionFilter.busqueda(data.ropa, item);
+    document.getElementById("galeria-dg").innerHTML = "";
+    if (buscados.length) {
+      ropaDetalle(buscados);
+      agregarBtnComprar();
+      agregarBtnInfo();
+    } else {
+      resultado.innerHTML += "<p>Ooops, no encontramos tu prenda 🤭</p>";
+    }
+  }
+});
+
+//Limpiar busqueda
+function limpiarBusqueda() {
+  resultado.innerHTML = "";
   document.getElementById("galeria-dg").innerHTML = "";
-  //ordenado
-  ropaDetalle(ordenAz);
+  document.getElementById("item-buscado").value = "";
+}
+
+//Ordenar alfabeticamente de A -> Z
+document.getElementById("az").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  //Ordenar y mostrar prendas filtradas
+  let ordenZa = ordenar.az(data.ropa);
+
+  //Mostrar resultado ordenado
+  poblarGaleriaRopa(ordenZa);
 });
 
-// //click a ordenar za
-document.getElementById("za").addEventListener("click", function () {
-  //ordenar data
-  let ordenZa = ordenar.za(data.ropa);
-  //limpiar pabtalla
-  document.getElementById("galeria-dg").innerHTML = "";
-  //ordenado
-  ropaDetalle(ordenZa);
+//Ordenar alfabeticamente de Z -> A
+document.getElementById("za").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  //Ordenar y mostrar prendas filtradas
+  let ordenZa = ordenar.za(data.ropa);;
+
+  //Mostrar resultado ordenado
+  poblarGaleriaRopa(ordenZa);
 });
 
-//FILTRAR CATEGORIA
-const filterRegion = document.querySelector('#categoria');
-filterRegion.addEventListener('click', function (e) {
+//FILTRAR POR CATEGORIA
+const filtroCategoria = document.querySelector("#categoria");
+
+filtroCategoria.addEventListener("click", function (e) {
+  e.preventDefault();
+
   const value = e.target.id;
-  let filtrando = functionFilter.categoria(data.ropa, value);
-  document.getElementById('galeria-dg').innerHTML = "";
-  ropaDetalle(filtrando);
-});
-//FILTRAR ESTACION
-const filterEstacion = document.querySelector('#estacion');
-filterEstacion.addEventListener('click', function (e) {
-  const value = e.target.id;
-  let filtrando = functionFilter.estacion(data.ropa, value);
-  document.getElementById('galeria-dg').innerHTML = "";
-  ropaDetalle(filtrando);
+  let resultadoFiltroPorCategoria = filtrar(data.ropa, value, "category");
+  
+  //Mostrar resultado del filtro
+  poblarGaleriaRopa(resultadoFiltroPorCategoria);
 });
 
-//busqueda
-const resultado = document.querySelector('#resultado');
-const formulario = document.querySelector('#formulario');
-const boton = document.querySelector('#boton');
-const filtrar = (ropa) => {
-  resultado.innerHTML = '';
-  const texto = formulario.value.toLowerCase();
-  const busqueda = ropa.filter(function (item) {
-    if (item.name.includes(texto)) {
-      return true;
-    } else
-      return false;
-  });
-  document.getElementById('galeria-dg').innerHTML = "";
-  ropaDetalle(busqueda);
-  if (busqueda.length === 0) {
-    resultado.innerHTML += `
-         <p>Prenda no  encontrada...</p>
-          `
+//FILTRAR POR ESTACION
+const filtroEstacion = document.querySelector("#estacion");
+
+filtroEstacion.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const value = e.target.id;
+  let resultadoFiltroPorEstacion = filtrar(data.ropa, value, "season");
+
+  //Mostrar resultado del filtro
+  poblarGaleriaRopa(resultadoFiltroPorEstacion);
+});
+
+/*** FUNCIONALIDADES DE LA TARJETA "PRENDA" ***/
+//Funcionalidad "Más info"
+function agregarBtnInfo(){
+  let botonesMasInfo = document.getElementsByClassName("btn-mas-info");
+  for (let i = 0; i < botonesMasInfo.length; i++) {
+ 
+    botonesMasInfo[i].addEventListener("click", function (e) {
+      e.preventDefault();
+      //Obtener el item a mostrar más info
+      let id = botonesMasInfo[i].getAttribute("value");
+      let cardFront = document.getElementById(`card-${id}-f`);
+      let cardBack = document.getElementById(`card-${id}-b`);
+  
+      if (cardFront.style.display  === "none") {
+        cardFront.style.display = "block";
+        cardBack.style.display = "none";
+      } else {
+        cardFront.style.display = "none";
+        cardBack.style.display = "block";
+      }
+    });
+  }  
+}
+
+//Funcionalidad "Comprar"
+function agregarBtnComprar() {
+  let itemAComprar = "";
+  let botonesComprar = document.getElementsByClassName("btn-comprar");
+  
+  for (let i = 0; i < botonesComprar.length; i++) {
+    //Obtener el item a comprar
+    let id = botonesComprar[i].getAttribute("value");
+  
+    itemAComprar = functionFilter.itemById(data.ropa, id);
+  
+    //Mensaje a enviar a whatsapp
+    let whatsappNumber = "";
+    let message = `Holaaa Disquete Galaxico. Me encanta el/la *${itemAComprar.name}* (cod: ${itemAComprar.id}), quiero comprarlo/a Yaa! :)`;
+    let whatsapp = `https://wa.me/${whatsappNumber}?text=${message}`;
+  
+    botonesComprar[i].setAttribute("href", whatsapp);
   }
 }
-boton.addEventListener('click', () => {
-  filtrar(data.ropa);
-});
