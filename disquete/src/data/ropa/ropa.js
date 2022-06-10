@@ -1,6 +1,6 @@
 export default {
   "ropa": [{
-    "num": "001",
+    "id": "001",
     "name": "Pantalón RAM rojo",
     "description": "Pantalón a cuadros, prenda versátil.",
     "category": "mujeres",
@@ -13,7 +13,7 @@ export default {
     "tallas": "Standar",  
   },
   {
-    "num": "002",
+    "id": "002",
     "name": "Pantalón RAM gris",
     "description": "Pantalón a cuadros, prenda versátil.",
     "category": "mujeres",
@@ -27,7 +27,7 @@ export default {
   
   },
   {
-    "num": "003",
+    "id": "003",
     "name": "Pantalón RAM negro",
     "description": "Pantalón a cuadros, prenda versátil.",
     "category": "mujeres",

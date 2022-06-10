@@ -50,4 +50,13 @@ export const functionFilter = {
     })
     return filterB;
   },
+  itemById: function (ropa, value) {
+    let itemById = ropa.filter((item) => {
+      if (item.id.toLowerCase().includes(value)) {
+        return "hello";
+      } else
+        return false;
+    });
+    return itemById[0];
+  },
 }

@@ -78,6 +78,7 @@
 /*** GALLERY SECTION ***/
 .gallery-section  {
     display: grid;
+    align-content: space-evenly;
 }
 .gallery-section .galeria-filtro {
     height: auto;
@@ -102,6 +103,26 @@
 .btn-outline-darkpurple {
     color: var(--lila-oscuro);
     border-color: var(--lila-oscuro);
+}
+
+.card-body h3{
+    font-size: 1.3rem;
+    color: var(--rosa-oscuro);
+}
+
+.card-body p{
+    font-size: 0.9rem;
+}
+
+.btn-comprar {
+    background-color: var(--lila-claro);
+    border-color: var(--lila-claro);
+    color: black;
+}
+
+.btn-comprar:hover, .btn-comprar:focus {
+    background-color: var(--lila-oscuro);
+    color: white;
 }
 
 /*** MEDIA QUERY ***/
