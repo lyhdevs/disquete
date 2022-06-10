@@ -23,7 +23,6 @@ export const ordenar = {
   },
 };
 export const functionFilter = {
-
   categoria: function (ropa, value) {
     const filterR = ropa.filter((item) => {
       if (item.category.includes(value)) {
@@ -41,5 +40,14 @@ export const functionFilter = {
         return false;
     })
     return filterT;
+  },
+  busqueda: function (ropa, value) {
+    const filterB = ropa.filter((item) => {
+      if (item.name.toLowerCase().includes(value) || item.category.toLowerCase().includes(value) || item.season.toLowerCase().includes(value)) {
+        return true;
+      } else
+        return false;
+    })
+    return filterB;
   },
 }
