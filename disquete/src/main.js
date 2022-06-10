@@ -1,10 +1,12 @@
-import { ordenar, functionFilter } from "./data.js";
+import { ordenar, functionFilter, filtrar } from "./data.js";
 import data from "./data/ropa/ropa.js";
 
 //Poblando Galería de Ropa
 function ropaDetalle(prendasResultado) {
   for (let j = 0; j < prendasResultado.length; j++) {
     let ropa = document.createElement("div");
+    ropa.setAttribute("id", `item-${prendasResultado[j].id}`);
+    ropa.classList.add("ropa-item");
     ropa.classList.add("col-md-4");
     ropa.innerHTML = `
       <div class="card mb-4 box-shadow card-front" id="card-${prendasResultado[j].id}-f">
@@ -41,9 +43,18 @@ function ropaDetalle(prendasResultado) {
     document.getElementById("galeria-dg").appendChild(ropa);
   }
 }
+
 ropaDetalle(data.ropa);
-agregarBtnComprar();
-agregarBtnInfo();
+
+function poblarGaleriaRopa(db){
+  //Limpiar y Poblar Galería
+  limpiarBusqueda();
+  ropaDetalle(db);
+
+  //Agregar funcionalidades a cada tarjeta de prenda
+  agregarBtnComprar();
+  agregarBtnInfo();
+}
 
 //Buscar una prenda por nombre, categoría o temporada
 const resultado = document.getElementById("resultado");
@@ -70,62 +81,56 @@ btnBuscar.addEventListener("click", (e) => {
 //Limpiar busqueda
 function limpiarBusqueda() {
   resultado.innerHTML = "";
+  document.getElementById("galeria-dg").innerHTML = "";
   document.getElementById("item-buscado").value = "";
 }
 
-//click a ordenar az
+//Ordenar alfabeticamente de A -> Z
 document.getElementById("az").addEventListener("click", function (e) {
   e.preventDefault();
-  limpiarBusqueda();
-  //ordenar data
-  let ordenAz = ordenar.az(data.ropa);
-  //limpiar pantalla
-  document.getElementById("galeria-dg").innerHTML = "";
-  //ordenado
-  ropaDetalle(ordenAz);
 
-  agregarBtnComprar();
-  agregarBtnInfo();
+  //Ordenar y mostrar prendas filtradas
+  let ordenZa = ordenar.az(data.ropa);
+
+  //Mostrar resultado ordenado
+  poblarGaleriaRopa(ordenZa);
 });
 
-// //click a ordenar za
+//Ordenar alfabeticamente de Z -> A
 document.getElementById("za").addEventListener("click", function (e) {
   e.preventDefault();
-  limpiarBusqueda();
-  //ordenar data
-  let ordenZa = ordenar.za(data.ropa);
-  //limpiar pabtalla
-  document.getElementById("galeria-dg").innerHTML = "";
-  //ordenado
-  ropaDetalle(ordenZa);
-  agregarBtnComprar();
-agregarBtnInfo();
+
+  //Ordenar y mostrar prendas filtradas
+  let ordenZa = ordenar.za(data.ropa);;
+
+  //Mostrar resultado ordenado
+  poblarGaleriaRopa(ordenZa);
 });
 
-//FILTRAR CATEGORIA
-const filterRegion = document.querySelector("#categoria");
-filterRegion.addEventListener("click", function (e) {
+//FILTRAR POR CATEGORIA
+const filtroCategoria = document.querySelector("#categoria");
+
+filtroCategoria.addEventListener("click", function (e) {
   e.preventDefault();
-  limpiarBusqueda();
-  const value = e.target.id;
-  let filtrando = functionFilter.categoria(data.ropa, value);
-  document.getElementById("galeria-dg").innerHTML = "";
-  ropaDetalle(filtrando);
-  agregarBtnComprar();
-agregarBtnInfo();
-});
-//FILTRAR ESTACION
-const filterEstacion = document.querySelector("#estacion");
-filterEstacion.addEventListener("click", function (e) {
-  e.preventDefault();
-  limpiarBusqueda();
 
   const value = e.target.id;
-  let filtrando = functionFilter.estacion(data.ropa, value);
-  document.getElementById("galeria-dg").innerHTML = "";
-  ropaDetalle(filtrando);
-  agregarBtnComprar();
-agregarBtnInfo();
+  let resultadoFiltroPorCategoria = filtrar(data.ropa, value, "category");
+  
+  //Mostrar resultado del filtro
+  poblarGaleriaRopa(resultadoFiltroPorCategoria);
+});
+
+//FILTRAR POR ESTACION
+const filtroEstacion = document.querySelector("#estacion");
+
+filtroEstacion.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const value = e.target.id;
+  let resultadoFiltroPorEstacion = filtrar(data.ropa, value, "season");
+
+  //Mostrar resultado del filtro
+  poblarGaleriaRopa(resultadoFiltroPorEstacion);
 });
 
 /*** FUNCIONALIDADES DE LA TARJETA "PRENDA" ***/
