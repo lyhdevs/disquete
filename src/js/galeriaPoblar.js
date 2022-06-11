@@ -104,7 +104,7 @@ export function galeriaRopa(prendasResultado) {
  * Agregar funcionalidades a cada tarjeta de prenda */
 export function poblarGaleriaRopa(db) {
   limpiarBusqueda();
-  galeriaRopa(db);
+  db.length > 0 ? galeriaRopa(db) : galeriaNoEncontrada();
   agregarBtnComprar();
   agregarBtnInfo();
 }
