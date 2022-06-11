@@ -61,7 +61,7 @@ export function galeriaRopa(prendasResultado) {
   for (let j = 0; j < prendasResultado.length; j++) {
     let prenda = document.createElement("div");
     prenda.setAttribute("id", `item-${prendasResultado[j].id}`);
-    prenda.classList.add("ropa-item", "col-md-4");
+    prenda.classList.add("ropa-item", "col-lg-4", "col-md-6", "col-sm-6");
     prenda.innerHTML = `
           <div class="card mb-4 box-shadow card-front" id="card-${prendasResultado[j].id}-f">
               <img class="card-img-top" src="${prendasResultado[j].img}"/>

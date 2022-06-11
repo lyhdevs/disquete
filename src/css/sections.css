@@ -101,6 +101,12 @@
     height: auto;
 }
 
+.galeria-filtro {
+    display: flex;
+    justify-content: center;
+    place-content: space-evenly;
+}
+
 .galeria-resultado {
     display: block;
 }
@@ -229,16 +235,26 @@
 }
 
 @media only screen and (max-width: 995px) {
-    .home-section{
+    section {
         min-height: auto;
     }
 
-    .home-section .container-fluid{
-        padding: 3rem 2.125rem;
+    .container-fluid {
+        padding: 1.6rem 3rem;
     }
 
-    .home-center {
+    .dg-navbar {
+        justify-content: space-between;
+        padding: 0.75rem 2.5rem;
+    }
+
+    .home-section {
+        padding: 1rem 3rem;
+    }
+
+    .home-title{
         padding: 0;
+        min-height: 130px;
     }
 
     .big-heading {
@@ -249,7 +265,85 @@
         display: none;
     }
 
+    .carousel-indicators {
+        bottom: -36px;
+    }
+
     .socials {
+        max-height: 40px;
+        margin-top: 10px;
         flex-direction: row;
+        align-self: flex-end;
+    }
+
+    .socials a {
+        padding: 0 0.8rem;
+    }
+
+    .socials a i {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .container-fluid {
+        padding: 1.2rem 2rem;
+    }
+
+    .big-heading {
+        font-size: 3rem;
+    }
+
+    .galeria-filtro {
+        display: grid;
+        text-align: center;
+    }
+
+    .row-filtrar, .row-buscar {
+        padding: 0.5rem 0;
+    }
+
+
+    #resultado p {
+        font-size: 2.3rem;
+    }
+
+    .row-buscar form {
+        flex-flow: unset;
+    }
+
+    .dropdown-toggle {
+        padding: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .socials {
+        margin-top: 42px;
+    }
+
+    .galeria-filtro {
+        padding: 0;
+    }
+
+    .dropdown-toggle, .dropdown-item {
+        padding: 0.3rem 0.38rem;
+        font-size: 0.7rem;
+    }
+
+    .row-buscar, .row-buscar .btn-group, .form-inline {
+        width: 100%;
+    }
+
+    .row-buscar form {
+        justify-content: space-between;
+    }
+
+    #item-buscado {
+        margin-right: 5px;
+    }
+
+    #resultado p {
+        font-size: 1.75rem;
     }
 }

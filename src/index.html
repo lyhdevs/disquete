@@ -52,7 +52,7 @@
 
       <!-- Title -->
       <div class="row">
-        <div class="col-lg-6 home-center">
+        <div class="col-lg-6 home-title home-center">
           <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
@@ -97,46 +97,52 @@
   <!--Galeria Section-->
   <section id="galeria" class="gallery-section">
     <div class="container-fluid">
-      <div class="row galeria-filtro">
-        <div class="col-lg-10">
-          <div class="btn-group">
-            <button class="btn btn-darkpink btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              CATEGORIA
-            </button>
-            <div id="categoria" class="dropdown-menu">
-              <a id="mujeres" class="dropdown-item" href="#">MUJERES</a>
-              <a id="hombres" class="dropdown-item" href="#">HOMBRES</a>
+
+        <div class="col-lg-10 galeria-filtro">
+          <div class="row-filtrar">
+            <div class="btn-group">
+              <button class="btn btn-darkpink btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                CATEGORIA
+              </button>
+              <div id="categoria" class="dropdown-menu">
+                <a id="mujeres" class="dropdown-item" href="#">MUJERES</a>
+                <a id="hombres" class="dropdown-item" href="#">HOMBRES</a>
+              </div>
             </div>
-          </div>
-  
-          <div class="btn-group">
-            <button class="btn btn-darkpink btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              ESTACIÓN
-            </button>
-            <div id="estacion" class="dropdown-menu">
-              <a id="verano" class="dropdown-item" href="#">VERANO</a>
-              <a id="invierno" class="dropdown-item" href="#">INVIERNO</a>
+    
+            <div class="btn-group">
+              <button class="btn btn-darkpink btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ESTACIÓN
+              </button>
+              <div id="estacion" class="dropdown-menu">
+                <a id="verano" class="dropdown-item" href="#">VERANO</a>
+                <a id="invierno" class="dropdown-item" href="#">INVIERNO</a>
+              </div>
             </div>
-          </div>
-          
-          <div class="btn-group">
-            <button class="btn btn-darkpink btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              ORDENAR
-            </button>
-            <div id="submenu" class="dropdown-menu">
-              <a id="az" class="dropdown-item" href="#">A - Z</a>
-              <a id="za" class="dropdown-item" href="#">Z - A</a>
+            
+            <div class="btn-group">
+              <button class="btn btn-darkpink btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ORDENAR
+              </button>
+              <div id="submenu" class="dropdown-menu">
+                <a id="az" class="dropdown-item" href="#">A - Z</a>
+                <a id="za" class="dropdown-item" href="#">Z - A</a>
+              </div>
             </div>
           </div>
 
-          <div class="btn-group">
-            <form class="form-inline">
-              <input id="item-buscado" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
-              <button id="btn-buscar" class="btn btn-outline-darkpurple my-2 my-sm-0" type="submit">Buscar</button>
-            </form>
+          <div class="row-buscar">
+            <div class="btn-group">
+              <form class="form-inline">
+                <input id="item-buscado" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                <button id="btn-buscar" class="btn btn-outline-darkpurple my-2 my-sm-0" type="submit">Buscar</button>
+              </form>
+            </div>
           </div>
+          
+          
         </div>
-      </div>
+
 
       <div class="row galeria-resultado">
         <div class="album py-5">
