@@ -11,7 +11,7 @@
 /* Estilo global */
 @font-face {
   font-family: 'Aloja';
-  src: url("fonts/Aloja-extended.otf") format("opentype");
+  src: url("../fonts/Aloja-extended.otf") format("opentype");
 }
 
 *{
