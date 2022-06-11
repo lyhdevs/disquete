@@ -1,5 +1,5 @@
 import { poblarGaleriaRopa } from "./galeriaPoblar.js";
-import data from "../data/ropa/ropa.js";
+import data from "../data/prendas.js";
 import { ordenarYPoblar, filtrarYPoblar, buscarYPoblar } from "./galeriaFunciones.js"
 
 poblarGaleriaRopa(data.ropa);

@@ -1,4 +1,4 @@
-import data from "../data/ropa/ropa.js";
+import data from "../data/prendas.js";
 import { filtrar } from "./helpers/filtros.js";
 import { whatsappMessage } from "./helpers/mensajes.js";
 
