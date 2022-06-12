@@ -3,10 +3,10 @@ export const ordenar = {
   az: function (ropaBD) {
     return ropaBD.sort((ropaA, ropaB) => {
       
-      if (ropaA.name > ropaB.name) {
+      if (ropaA.nombre > ropaB.nombre) {
         return 1;
       }
-      if (ropaA.name < ropaB.name) {
+      if (ropaA.nombre < ropaB.nombre) {
         return -1;
       }
       return 0;
@@ -14,10 +14,10 @@ export const ordenar = {
   },
   za: function (ropaBD) {
     return ropaBD.sort((ropaA, ropaB) => {
-      if (ropaA.name < ropaB.name) {
+      if (ropaA.nombre < ropaB.nombre) {
         return 1;
       }
-      if (ropaA.name > ropaB.name) {
+      if (ropaA.nombre > ropaB.nombre) {
         return -1;
       }
       return 0;
@@ -28,7 +28,7 @@ export const ordenar = {
 /* FILTRAR POR CUALQUIER ATRIBUTO */
 export const filtrar = (ropaBD, value, filtrarPor) => {
   const result = ropaBD.filter((item) => {
-    if(item[filtrarPor].toLowerCase().includes(value)){
+    if(item[filtrarPor].toLowerCase().includes(value.toLowerCase())){
       return true;
     } else {
       return false;
@@ -42,19 +42,19 @@ export const filtrar = (ropaBD, value, filtrarPor) => {
 export function buscar(ropaBD, item) {
   let resultadoDeBusqueda = [];
   resultadoDeBusqueda = resultadoDeBusqueda.concat(
-    filtrar(ropaBD, item, "name")
+    filtrar(ropaBD, item, "nombre")
   );
   resultadoDeBusqueda = resultadoDeBusqueda.concat(
-    filtrar(ropaBD, item, "category")
+    filtrar(ropaBD, item, "categoria")
   );
   resultadoDeBusqueda = resultadoDeBusqueda.concat(
-    filtrar(ropaBD, item, "season")
+    filtrar(ropaBD, item, "temporada")
   );
   resultadoDeBusqueda = resultadoDeBusqueda.concat(
     filtrar(ropaBD, item, "material")
   );
   resultadoDeBusqueda = resultadoDeBusqueda.concat(
-    filtrar(ropaBD, item, "description")
+    filtrar(ropaBD, item, "descripcion")
   );
 
   if (resultadoDeBusqueda.length > 0) {

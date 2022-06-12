@@ -1,6 +1,7 @@
 import data from "../data/prendas.js";
 import { filtrar } from "./helpers/filtros.js";
 import { whatsappMessage } from "./helpers/mensajes.js";
+import { prendasDB } from "./app.js";
 
 /* Variables Globales */
 export let resultado = document.getElementById("resultado");
@@ -43,7 +44,7 @@ export function agregarBtnComprar() {
 
   for (let i = 0; i < botonesComprar.length; i++) {
     let id = botonesComprar[i].getAttribute("value");
-    itemAComprar = filtrar(data.ropa, id, "id")[0];
+    itemAComprar = filtrar(prendasDB, id, "id")[0];
 
     let whatsappLink = whatsappMessage("prenda", itemAComprar);
     botonesComprar[i].setAttribute("href", whatsappLink);
@@ -64,10 +65,10 @@ export function galeriaRopa(prendasResultado) {
     prenda.classList.add("ropa-item", "col-lg-4", "col-md-6", "col-sm-6");
     prenda.innerHTML = `
           <div class="card mb-4 box-shadow card-front" id="card-${prendasResultado[j].id}-f">
-              <img class="card-img-top" src="${prendasResultado[j].img}"/>
+              <img class="card-img-top" src="${prendasResultado[j].imgUrl}"/>
               <div class="card-body">
-                <h3>${prendasResultado[j].name}</h3> 
-                <p>${prendasResultado[j].description}</p> 
+                <h3>${prendasResultado[j].nombre}</h3> 
+                <p>${prendasResultado[j].descripcion}</p> 
                 <div class="justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-light btn-mas-info" value="${prendasResultado[j].id}">Ver + Info</button>
@@ -79,8 +80,8 @@ export function galeriaRopa(prendasResultado) {
     
           <div class="card mb-4 box-shadow card-back" style="display: none;" id="card-${prendasResultado[j].id}-b">
             <div class="card-body">
-              <h3>${prendasResultado[j].name}</h3>
-              <p>Descripción: ${prendasResultado[j].description}</p>
+              <h3>${prendasResultado[j].nombre}</h3>
+              <p>Descripción: ${prendasResultado[j].descripcion}</p>
               <ul>
                 <li>Material: ${prendasResultado[j].material}</li>
                 <li>Tallas disponibles: ${prendasResultado[j].tallas}</li>
