@@ -37,3 +37,7 @@ section {
 ul, ol{
   list-style: none;
 }
+
+[type=button], [type=reset], [type=submit], button {
+  -webkit-appearance: button-bevel;
+  }
