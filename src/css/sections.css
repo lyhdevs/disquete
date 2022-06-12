@@ -3,6 +3,9 @@
     background-color: var(--rosa-claro);
     color: var(--rosa-oscuro);
     font-size: 0.625rem;
+    padding: 1rem 3rem;
+    justify-content: center;
+    align-items: center;
 }
   
 .navbar-nav {
@@ -19,7 +22,7 @@
 
 /* Secciones */
 .container-fluid {
-    padding: 0 3rem;
+    padding: 3rem;
     justify-content: center;
     align-items: center;
 }
@@ -31,12 +34,27 @@
 }
 
 /*** HOME SECTION ***/  
+.home-section {
+    padding: 0 3rem;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.home-section .row {
+    width: 100%;
+    justify-content: center;
+}
+
 .big-heading {
     justify-content: center;
     text-align: center;
     font-family: 'Aloja', 'Fredoka One', cursive;
     font-size: 8.085rem;
     color: var(--lila-oscuro);
+}
+
+.carousel-indicators {
+    bottom: -20px;
 }
 
 .carousel-indicators li {
@@ -69,20 +87,28 @@
 .socials a{
     color: var(--lila-oscuro);
     padding: 0.5rem;
+    align-items: flex-end;
 }
+
 .socials a i:hover{
     color: #6f5383;
     transform: scale(1.4);
 }
 
 /*** GALLERY SECTION ***/
-.gallery-section  {
-    display: grid;
-    align-content: space-evenly;
-}
-.gallery-section .galeria-filtro {
+.gallery-section .row {
+    align-content: center;
     height: auto;
-    margin-top: 40px;
+}
+
+.galeria-filtro {
+    display: flex;
+    justify-content: center;
+    place-content: space-evenly;
+}
+
+.galeria-resultado {
+    display: block;
 }
 
 .btn-darkpink, .btn-darkpink:hover {
@@ -125,44 +151,11 @@
     color: white;
 }
 
-/*** MEDIA QUERY ***/
-@media only screen and (max-width: 1425px) {
-    .big-heading {
-        font-size: 6.75rem;
-    }
+#resultado p {
+    justify-self: center;
+    font-size: 3.3rem;
 }
 
-@media only screen and (max-width: 1240px) {
-    .big-heading {
-        font-size: 5.125rem;
-    }
-}
-
-@media only screen and (max-width: 995px) {
-    .home-section{
-        min-height: auto;
-    }
-
-    .home-section .container-fluid{
-        padding: 3rem 2.125rem;
-    }
-
-    .home-center {
-        padding: 0;
-    }
-
-    .big-heading {
-        font-size: 3.5rem;
-    }
-
-    .col-title-image {
-        display: none;
-    }
-
-    .socials {
-        flex-direction: row;
-    }
-}
 
 /*** OUTFITS SECTION ***/
 .services-section{
@@ -226,4 +219,134 @@
     border: none;
     border-radius: 20px;
     padding: 3px 23px;
+}
+
+/*** MEDIA QUERY ***/
+@media only screen and (max-width: 1425px) {
+    .big-heading {
+        font-size: 6.75rem;
+    }
+}
+
+@media only screen and (max-width: 1240px) {
+    .big-heading {
+        font-size: 5.125rem;
+    }
+}
+
+@media only screen and (max-width: 995px) {
+    section {
+        min-height: auto;
+    }
+
+    .container-fluid {
+        padding: 1.6rem 3rem;
+    }
+
+    .dg-navbar {
+        justify-content: space-between;
+        padding: 0.75rem 2.5rem;
+    }
+
+    .home-section {
+        padding: 1rem 3rem;
+    }
+
+    .home-title{
+        padding: 0;
+        min-height: 130px;
+    }
+
+    .big-heading {
+        font-size: 3.5rem;
+    }
+
+    .col-title-image {
+        display: none;
+    }
+
+    .carousel-indicators {
+        bottom: -36px;
+    }
+
+    .socials {
+        max-height: 40px;
+        margin-top: 10px;
+        flex-direction: row;
+        align-self: flex-end;
+    }
+
+    .socials a {
+        padding: 0 0.8rem;
+    }
+
+    .socials a i {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .container-fluid {
+        padding: 1.2rem 2rem;
+    }
+
+    .big-heading {
+        font-size: 3rem;
+    }
+
+    .socials {
+        margin-top: 30px;
+    }
+
+    .galeria-filtro {
+        display: grid;
+        text-align: center;
+    }
+
+    .row-filtrar, .row-buscar {
+        padding: 0.5rem 0;
+    }
+
+    .row-buscar, .row-buscar .btn-group, .form-inline {
+        width: 100%;
+    }
+
+    .row-buscar form {
+        justify-content: space-between;
+    }
+
+    #item-buscado {
+        margin-right: 5px;
+    }
+
+    #resultado p {
+        font-size: 2.3rem;
+    }
+
+    .row-buscar form {
+        flex-flow: unset;
+    }
+
+    .dropdown-toggle {
+        padding: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .socials {
+        margin-top: 42px;
+    }
+
+    .galeria-filtro {
+        padding: 0;
+    }
+
+    .dropdown-toggle, .dropdown-item {
+        padding: 0.3rem 0.38rem;
+        font-size: 0.7rem;
+    }
+
+    #resultado p {
+        font-size: 1.75rem;
+    }
 }

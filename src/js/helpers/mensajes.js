@@ -7,10 +7,10 @@ export function whatsappMessage(tipo, item) {
 
     if(tipo === "prenda"){
         wspNumber = wspNumPrenda;
-        msg = `Holaaa Disquete Galaxico. Me encanta el/la *${item.name}* (cod: ${item.id}), quiero comprarlo/a Yaa! :)`;
+        msg = `Holaaa Disquete Galaxico. Me encanta el/la *${item.nombre}* (cod: ${item.id}), quiero comprarlo/a Yaa! :)`;
     } else if (tipo === "outfit"){
         wspNumber = wspNumOutfits;
-        msg = `Holaaa Disquete Galaxico. Me encanta el *${item.name}* (cod: ${item.id}), quiero comprarlo/a Yaa! :)`;
+        msg = `Holaaa Disquete Galaxico. Me encanta el *${item.nombre}* (cod: ${item.id}), quiero comprarlo/a Yaa! :)`;
     }
 
     whatsappLink = `https://wa.me/${wspNumber}?text=${msg}`;
