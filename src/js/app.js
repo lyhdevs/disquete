@@ -1,10 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 import { poblarGaleriaRopa } from "/src/js/galeriaPoblar.js";
-import dotenv from "dotenv";
-
-dotenv.config();
-console.log(process.env.API_KEY);
 
 /**************************************************/
 /************* CONEXIÓN CON FIREBASE **************/
