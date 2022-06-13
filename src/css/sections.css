@@ -75,7 +75,7 @@
     transform: scale(1.4);
 }
 
-/*** GALLERY SECTION ***/
+/*** STORE SECTION ***/
 .gallery-section  {
     display: grid;
     align-content: space-evenly;
@@ -103,6 +103,10 @@
 .btn-outline-darkpurple {
     color: var(--lila-oscuro);
     border-color: var(--lila-oscuro);
+}
+
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: none;
 }
 
 .card-body h3{
