@@ -37,6 +37,7 @@ export function galeriaOutfits(outfitsDB) {
   }
 }
 
+//TODO: esta funcion realiza lo mismo que agregarBtn
 function agregarBtnComprarOutfit(outfitsDB) {
     let itemAComprar = "";
     let botonesComprar = document.getElementsByClassName("btn-comprar-o");

@@ -1,11 +1,11 @@
-import { categoriasList, prendasDB } from "./app.js";
+import { prendasDB } from "./app.js";
 import { ordenarYPoblar, filtrarYPoblar, buscarYPoblar } from "./galeriaFunciones.js"
 import { ordenarDinamico } from "./helpers/ordenar.js"
 
 /**************************************************/
 /******* AGREGANDO LAS CATEGORÍAS EXISTENTE *******/
 /**************************************************/
-function agregarListaCategorias() {
+export function agregarListaCategorias(categoriasList) {
   let categoriaElement = document.getElementById("categoria");
 
   categoriasList.sort(ordenarDinamico("nombre"));
@@ -20,8 +20,6 @@ function agregarListaCategorias() {
     categoriaElement.appendChild(categoriaItem);
   });
 }
-
-agregarListaCategorias();
 
 /**************************************************/
 /* AGREGANDO FUNCIONALIDADES DE FILTRO Y BÙSQUEDA */

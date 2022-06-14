@@ -59,6 +59,7 @@ export function galeriaNoEncontrada() {
 /** FUNCIONALIDAD CREAR GALERIA CON TODOS LOS ITEMS O EL RESULTADO DE LA BUSQUEDA **/
 export function galeriaRopa(prendasResultado) {
   for (let j = 0; j < prendasResultado.length; j++) {
+    
     let prenda = document.createElement("div");
     prenda.setAttribute("id", `item-${prendasResultado[j].id}`);
     prenda.classList.add("ropa-item", "col-lg-4", "col-md-6", "col-sm-6");

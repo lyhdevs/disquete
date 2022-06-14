@@ -4,6 +4,7 @@ import {
   collection,
   getDocs,
 } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+import { agregarListaCategorias } from "./main.js";
 import { poblarGaleriaOutfits } from "./outfitsPoblar.js";
 import { poblarGaleriaRopa } from "./galeriaPoblar.js";
 
@@ -24,43 +25,43 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 
-
 /**************************************************/
 /********** OBTENIENDO DATOS DE FIREBASE **********/
 /**************************************************/
 
 /**************** GET PRENDAS ****************/
+let prendasDB = [];
 
-async function getPrendas(db) {
-  const prendasCol = collection(db, "prendas");
-  const prendasSnapshot = await getDocs(prendasCol);
-  const prendasList = prendasSnapshot.docs.map((doc) => doc.data());
+getDocs(collection(db,'prendas')).then((snapshot) => {
+  snapshot.docs.map((doc) => {
+    prendasDB.push(doc.data());
+  });
 
-  return prendasList;
-}
-
-export const prendasDB = await getPrendas(db);
-poblarGaleriaRopa(prendasDB);
+  poblarGaleriaRopa(prendasDB);
+});
 
 /**************** GET CATERGORIAS ****************/
-export async function getCategorias(db) {
-  const categoriasCol = collection(db, "categorias");
-  const categoriasSnapshot = await getDocs(categoriasCol);
-  const categoriasList = categoriasSnapshot.docs.map((doc) => doc.data());
+let categoriasList = [];
 
-  return categoriasList;
-}
+getDocs(collection(db,'categorias')).then((snapshot) => {
+  snapshot.docs.map((doc) => {
+    categoriasList.push(doc.data());
+  });
 
-export const categoriasList = await getCategorias(db);
+  console.log(categoriasList);
+  agregarListaCategorias(categoriasList);
+});
 
 /**************** GET OUTFITS ****************/
-export async function getOutfits(db) {
-  const outfitsCol = collection(db, "outfits");
-  const outfitsSnapshot = await getDocs(outfitsCol);
-  const outfitsList = outfitsSnapshot.docs.map((doc) => doc.data());
+let outfitsDB = [];
 
-  return outfitsList;
-}
+getDocs(collection(db,'outfits')).then((snapshot) => {
+  snapshot.docs.map((doc) => {
+    outfitsDB.push(doc.data());
+  });
 
-const outfitsDB = await getOutfits(db);
-poblarGaleriaOutfits(outfitsDB);
+  poblarGaleriaOutfits(outfitsDB);
+});
+
+
+export { prendasDB, categoriasList };

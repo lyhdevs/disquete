@@ -156,7 +156,7 @@
 
 /*** OUTFITS SECTION ***/
 .services-section{
-    min-height: 100%;
+    min-height: 100vh;
     display: flex;
     background: var(--celeste-claro);
 }
