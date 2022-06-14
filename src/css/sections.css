@@ -3,6 +3,9 @@
     background-color: var(--rosa-claro);
     color: var(--rosa-oscuro);
     font-size: 0.625rem;
+    padding: 1rem 3rem;
+    justify-content: center;
+    align-items: center;
 }
   
 .navbar-nav {
@@ -19,7 +22,7 @@
 
 /* Secciones */
 .container-fluid {
-    padding: 0 3rem;
+    padding: 3rem;
     justify-content: center;
     align-items: center;
 }
@@ -31,20 +34,23 @@
 }
 
 /*** HOME SECTION ***/  
+.home-section {
+    padding: 0 3rem;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.home-section .row {
+    width: 100%;
+    justify-content: center;
+}
+
 .big-heading {
     justify-content: center;
     text-align: center;
     font-family: 'Aloja', 'Fredoka One', cursive;
     font-size: 8.085rem;
     color: var(--lila-oscuro);
-}
-
-.carousel-indicators li {
-    width: 10px;
-    height: 10px;
-    background-color: #bbb;
-    border: 0;
-    border-radius: 25px;
 }
   
 .col-title-image {
@@ -69,20 +75,28 @@
 .socials a{
     color: var(--lila-oscuro);
     padding: 0.5rem;
+    align-items: flex-end;
 }
+
 .socials a i:hover{
     color: #6f5383;
     transform: scale(1.4);
 }
 
-/*** STORE SECTION ***/
-.gallery-section  {
-    display: grid;
-    align-content: space-evenly;
-}
-.gallery-section .galeria-filtro {
+/*** GALLERY SECTION ***/
+.gallery-section .row {
+    align-content: center;
     height: auto;
-    margin-top: 40px;
+}
+
+.galeria-filtro {
+    display: flex;
+    justify-content: center;
+    place-content: space-evenly;
+}
+
+.galeria-resultado {
+    display: block;
 }
 
 .btn-darkpink, .btn-darkpink:hover {
@@ -98,6 +112,7 @@
 
 .dropdown-menu {
     font-size: 0.77rem;
+    text-transform: uppercase;
 }
 
 .btn-outline-darkpurple {
@@ -118,6 +133,10 @@
     font-size: 0.9rem;
 }
 
+.card-front, .card-back {
+    min-height: 300px;
+}
+
 .btn-comprar {
     background-color: var(--lila-claro);
     border-color: var(--lila-claro);
@@ -127,6 +146,93 @@
 .btn-comprar:hover, .btn-comprar:focus {
     background-color: var(--lila-oscuro);
     color: white;
+}
+
+#resultado p {
+    justify-self: center;
+    font-size: 3.3rem;
+}
+
+
+/*** OUTFITS SECTION ***/
+.services-section{
+    min-height: 100%;
+    display: flex;
+    background: var(--celeste-claro);
+}
+
+.services-section .container-fluid .row{
+    align-content: center;
+}
+
+#carrouselOutfits {
+    height: 100%;
+}
+
+.outfit-img {
+    width: 500px;
+    height: 500px;
+    filter: drop-shadow(-25px 20px 4px rgba(188, 217, 247, 0.06));
+    border-radius: 20px;
+}
+
+.outfit-info .rosa-btn {
+    position: absolute;
+    right: 100px;
+    font-size: 1.5rem;
+    padding: 10px 23px;
+}
+
+.outfit-info {
+    text-align: left;
+    font-size: 1.125rem;
+}
+
+.outfit-info h4{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 70px;
+    color: var(--rosa-oscuro);
+}
+
+.outfit-info ul, .outfit-info p {
+    font-size: 1.075rem;
+}
+
+.rosa-btn {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: white;
+    background-color: var(--rosa-oscuro);
+    border: none;
+    border-radius: 20px;
+    padding: 3px 23px;
+}
+
+#carrouselOutfits .carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border: 0;
+    border-radius: 25px;
+}
+
+.carousel-control-prev {
+    left: -50px;
+}
+
+.carousel-control-next {
+    right: -50px;
 }
 
 /*** MEDIA QUERY ***/
@@ -143,16 +249,26 @@
 }
 
 @media only screen and (max-width: 995px) {
-    .home-section{
+    section {
         min-height: auto;
     }
 
-    .home-section .container-fluid{
-        padding: 3rem 2.125rem;
+    .container-fluid {
+        padding: 1.6rem 3rem;
     }
 
-    .home-center {
+    .dg-navbar {
+        justify-content: space-between;
+        padding: 0.75rem 2.5rem;
+    }
+
+    .home-section {
+        padding: 1rem 3rem;
+    }
+
+    .home-title{
         padding: 0;
+        min-height: 130px;
     }
 
     .big-heading {
@@ -163,71 +279,88 @@
         display: none;
     }
 
+    .carousel-indicators {
+        bottom: -36px;
+    }
+
     .socials {
+        max-height: 40px;
+        margin-top: 10px;
         flex-direction: row;
+        align-self: flex-end;
+    }
+
+    .socials a {
+        padding: 0 0.8rem;
+    }
+
+    .socials a i {
+        font-size: 1.5rem;
     }
 }
 
-/*** OUTFITS SECTION ***/
-.services-section{
-    min-height: 100%;
-    display: flex;
-    background: var(--celeste-claro);
+@media only screen and (max-width: 750px) {
+    .container-fluid {
+        padding: 1.2rem 2rem;
+    }
+
+    .big-heading {
+        font-size: 3rem;
+    }
+
+    .socials {
+        margin-top: 30px;
+    }
+
+    .galeria-filtro {
+        display: grid;
+        text-align: center;
+    }
+
+    .row-filtrar, .row-buscar {
+        padding: 0.5rem 0;
+    }
+
+    .row-buscar, .row-buscar .btn-group, .form-inline {
+        width: 100%;
+    }
+
+    .row-buscar form {
+        justify-content: space-between;
+    }
+
+    #item-buscado {
+        margin-right: 5px;
+    }
+
+    #resultado p {
+        font-size: 2.3rem;
+    }
+
+    .row-buscar form {
+        flex-flow: unset;
+    }
+
+    .dropdown-toggle {
+        padding: 0.5rem;
+    }
 }
 
-.services-section .container-fluid .row{
-    align-content: center;
-}
+@media only screen and (max-width: 420px) {
+    .socials {
+        margin-top: 42px;
+    }
 
-.outfit-img {
-    width: 500px;
-    height: 500px;
-    filter: drop-shadow(-25px 20px 4px rgba(188, 217, 247, 0.06));
-    border-radius: 20px;
-}
+    .galeria-filtro {
+        padding: 0;
+    }
 
-#carrouselOutfits .carousel-indicators {
-    position: inherit;
-    top: 10px;
-}
+    .dropdown-toggle, .dropdown-item {
+        padding: 0.3rem 0.38rem;
+        font-size: 0.7rem;
+    }
 
-.mas-outfits-btn {
-    font-style: normal;
-    font-weight: 700;
-    line-height: 45px;
-    text-decoration-line: underline;
-    text-transform: uppercase;
-    color: #9B7AB1;
-}
-
-.mas-outfits-btn:hover {
-    color: #9CC2DC;
-}
-
-.outfit-info {
-    margin-top: 2rem;
-    text-align: left;
-    font-size: 1.125rem;
-}
-
-.outfit-info h4{
-    font-style: normal;
-    font-weight: 700;
-    font-size: 2rem;
-    line-height: 70px;
-    color: var(--rosa-oscuro);
-}
-
-.outfit-info ul, .outfit-info p{
-    font-size: 1.075rem;
-}
-
-.rosa-btn {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    color: white;
-    background-color: var(--rosa-oscuro);
-    border: none;
-    border-radius: 20px;
-    padding: 3px 23px;
+    #resultado p {
+        font-size: 1.75rem;
+    }
 }

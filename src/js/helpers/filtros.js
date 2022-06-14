@@ -3,10 +3,10 @@ export const ordenar = {
   az: function (ropaBD) {
     return ropaBD.sort((ropaA, ropaB) => {
       
-      if (ropaA.name > ropaB.name) {
+      if (ropaA.nombre > ropaB.nombre) {
         return 1;
       }
-      if (ropaA.name < ropaB.name) {
+      if (ropaA.nombre < ropaB.nombre) {
         return -1;
       }
       return 0;
@@ -14,10 +14,10 @@ export const ordenar = {
   },
   za: function (ropaBD) {
     return ropaBD.sort((ropaA, ropaB) => {
-      if (ropaA.name < ropaB.name) {
+      if (ropaA.nombre < ropaB.nombre) {
         return 1;
       }
-      if (ropaA.name > ropaB.name) {
+      if (ropaA.nombre > ropaB.nombre) {
         return -1;
       }
       return 0;
@@ -28,7 +28,8 @@ export const ordenar = {
 /* FILTRAR POR CUALQUIER ATRIBUTO */
 export const filtrar = (ropaBD, value, filtrarPor) => {
   const result = ropaBD.filter((item) => {
-    if(item[filtrarPor].toLowerCase().includes(value)){
+
+    if(item[filtrarPor].toLowerCase().includes(value.toLowerCase())){
       return true;
     } else {
       return false;
@@ -40,22 +41,29 @@ export const filtrar = (ropaBD, value, filtrarPor) => {
 
 /* BUSCAR EN TODOS LOS ATRIBUTO */
 export function buscar(ropaBD, item) {
-  let resultadoDeBusqueda = [];
-  resultadoDeBusqueda = resultadoDeBusqueda.concat(
-    filtrar(ropaBD, item, "name")
+  let prendasEncontradas = [];
+
+  prendasEncontradas = prendasEncontradas.concat(
+    filtrar(ropaBD, item, "nombre")
   );
-  resultadoDeBusqueda = resultadoDeBusqueda.concat(
-    filtrar(ropaBD, item, "category")
+
+  prendasEncontradas = prendasEncontradas.concat(
+    filtrar(ropaBD, item, "categoria")
   );
-  resultadoDeBusqueda = resultadoDeBusqueda.concat(
-    filtrar(ropaBD, item, "season")
+
+  prendasEncontradas = prendasEncontradas.concat(
+    filtrar(ropaBD, item, "temporada")
   );
-  resultadoDeBusqueda = resultadoDeBusqueda.concat(
+  prendasEncontradas = prendasEncontradas.concat(
     filtrar(ropaBD, item, "material")
   );
-  resultadoDeBusqueda = resultadoDeBusqueda.concat(
-    filtrar(ropaBD, item, "description")
+
+  prendasEncontradas = prendasEncontradas.concat(
+    filtrar(ropaBD, item, "descripcion")
   );
+
+  let resultadoDeBusqueda = [...new Map(prendasEncontradas.map((prenda) => [prenda["id"], prenda])).values()];
+
 
   if (resultadoDeBusqueda.length > 0) {
     return resultadoDeBusqueda;

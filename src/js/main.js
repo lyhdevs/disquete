@@ -1,8 +1,27 @@
-import { poblarGaleriaRopa } from "./galeriaPoblar.js";
-import data from "../data/prendas.js";
+import { categoriasList, prendasDB } from "./app.js";
 import { ordenarYPoblar, filtrarYPoblar, buscarYPoblar } from "./galeriaFunciones.js"
+import { ordenarDinamico } from "./helpers/ordenar.js"
 
-poblarGaleriaRopa(data.ropa);
+/**************************************************/
+/******* AGREGANDO LAS CATEGORÍAS EXISTENTE *******/
+/**************************************************/
+function agregarListaCategorias() {
+  let categoriaElement = document.getElementById("categoria");
+
+  categoriasList.sort(ordenarDinamico("nombre"));
+  categoriasList.forEach(categoria => {
+    
+    let categoriaItem = document.createElement("a");
+    categoriaItem.classList.add("dropdown-item");
+    categoriaItem.setAttribute("id", categoria.nombre);
+
+    let categoriaNombre = document.createTextNode(categoria.nombre);
+    categoriaItem.appendChild(categoriaNombre);
+    categoriaElement.appendChild(categoriaItem);
+  });
+}
+
+agregarListaCategorias();
 
 /**************************************************/
 /* AGREGANDO FUNCIONALIDADES DE FILTRO Y BÙSQUEDA */
@@ -12,22 +31,22 @@ poblarGaleriaRopa(data.ropa);
 const ordenAZ = document.getElementById("az");
 const ordenZA = document.getElementById("za");
 
-ordenAZ.addEventListener("click", (e) => ordenarYPoblar(e, data.ropa, "az"));
-ordenZA.addEventListener("click", (e) => ordenarYPoblar(e, data.ropa, "za"));
+ordenAZ.addEventListener("click", (e) => ordenarYPoblar(e, prendasDB, "az"));
+ordenZA.addEventListener("click", (e) => ordenarYPoblar(e, prendasDB, "za"));
 
 
 //FILTRAR POR CATEGORIA, ESTACIÓN
 const filtroCategoria = document.getElementById("categoria");
-const filtroEstacion = document.getElementById("estacion");
+const filtroTemporada = document.getElementById("temporada");
 
 filtroCategoria.addEventListener("click", (e) =>
-  filtrarYPoblar(e, data.ropa, "category")
+  filtrarYPoblar(e, prendasDB, "categoria")
 );
-filtroEstacion.addEventListener("click", (e) =>
-  filtrarYPoblar(e, data.ropa, "season")
+filtroTemporada.addEventListener("click", (e) =>
+  filtrarYPoblar(e, prendasDB, "temporada")
 );
 
 // BUSCAR UNA PRENDA (POR CUALQUIER ATRIBUTO
 const btnBuscar = document.querySelector("#btn-buscar");
 
-btnBuscar.addEventListener("click", (e) => buscarYPoblar(e, data.ropa));
+btnBuscar.addEventListener("click", (e) => buscarYPoblar(e, prendasDB));

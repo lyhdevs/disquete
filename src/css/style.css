@@ -34,6 +34,10 @@ section {
   display: flex;
 }
 
-ul, ol{
+ul, ol, li{
   list-style: none;
 }
+
+[type=button], [type=reset], [type=submit], button {
+  -webkit-appearance: button-bevel;
+  }
