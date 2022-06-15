@@ -159,9 +159,31 @@ button {
     font-size: 3.3rem;
 }
 
-
 /*** OUTFITS SECTION ***/
+#curve-top {
+    display: inline-block;
+    border-bottom-left-radius: 50% 100px !important;
+    border-bottom-right-radius: 50% 100px !important;
+    width: 100%;
+    margin-top: -50px;
+    background-color: white;
+    background-size: 42% auto;
+    height: 50px
+}
+
+#curve-bottom {
+    border-top-left-radius: 50% 100px !important;
+    border-top-right-radius: 50% 100px !important;
+    width: 100%;
+    margin-top: -50px;
+    background-color: white;
+    background-size: 42% auto;
+    height: 50px
+}
+
 .services-section {
+    margin-top: -57px;
+    padding-bottom: 50px;
     min-height: 100vh;
     display: flex;
     background: var(--celeste-claro);
@@ -331,6 +353,11 @@ button {
     }
 
     /* Outfits Section */
+    #curve-top {
+        border-bottom-left-radius: 85% 100px !important;
+        border-bottom-right-radius: 85% 100px !important;
+    }
+
     .outfit-img {
         width: 370px;
         height: 370px;
@@ -418,6 +445,10 @@ button {
     }
 
     /* Outfits Section */
+    .services-section {
+        padding-top: 6rem;
+    }
+
     #carrouselOutfits .carousel-indicators {
         display: none;
     }
@@ -521,8 +552,14 @@ button {
     }
 
     /* Outfits Section */
+    #curve-top {
+        display: none;
+    }
+
     .services-section {
         min-height: 30vh;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 
     .outfit-img {
@@ -538,11 +575,12 @@ button {
         margin-left: -5px;
     }
 
-    .outfit-info h4{
+    .outfit-info h4 {
         margin-bottom: 10px;
     }
 
-    .outfit-info h5, .outfit-info p {
+    .outfit-info h5,
+    .outfit-info p {
         font-size: 0.825rem;
     }
 
