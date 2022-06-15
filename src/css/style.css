@@ -34,7 +34,7 @@ section {
   display: flex;
 }
 
-ul, ol{
+ul, ol, li{
   list-style: none;
 }
 

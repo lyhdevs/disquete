@@ -1,5 +1,5 @@
-let wspNumPrenda = "511";
-let wspNumOutfits = "512";
+let wspNumPrenda = "51952084971";
+let wspNumOutfits = "51944235148";
 
 /*** ENVIAR MENSAJE DE WHATSAPP ***/
 export function whatsappMessage(tipo, item) {

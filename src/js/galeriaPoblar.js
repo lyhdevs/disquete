@@ -1,4 +1,3 @@
-import data from "../data/prendas.js";
 import { filtrar } from "./helpers/filtros.js";
 import { whatsappMessage } from "./helpers/mensajes.js";
 import { prendasDB } from "./app.js";
@@ -60,15 +59,17 @@ export function galeriaNoEncontrada() {
 /** FUNCIONALIDAD CREAR GALERIA CON TODOS LOS ITEMS O EL RESULTADO DE LA BUSQUEDA **/
 export function galeriaRopa(prendasResultado) {
   for (let j = 0; j < prendasResultado.length; j++) {
+    
     let prenda = document.createElement("div");
     prenda.setAttribute("id", `item-${prendasResultado[j].id}`);
     prenda.classList.add("ropa-item", "col-lg-4", "col-md-6", "col-sm-6");
     prenda.innerHTML = `
-          <div class="card mb-4 box-shadow card-front" id="card-${prendasResultado[j].id}-f">
+          <div class="card mb-3 box-shadow card-front" id="card-${prendasResultado[j].id}-f">
               <img class="card-img-top" src="${prendasResultado[j].imgUrl}"/>
               <div class="card-body">
                 <h3>${prendasResultado[j].nombre}</h3> 
                 <p>${prendasResultado[j].descripcion}</p> 
+                <p>${prendasResultado[j].precio}</p> 
                 <div class="justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-light btn-mas-info" value="${prendasResultado[j].id}">Ver + Info</button>

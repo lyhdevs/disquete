@@ -28,6 +28,7 @@ export const ordenar = {
 /* FILTRAR POR CUALQUIER ATRIBUTO */
 export const filtrar = (ropaBD, value, filtrarPor) => {
   const result = ropaBD.filter((item) => {
+
     if(item[filtrarPor].toLowerCase().includes(value.toLowerCase())){
       return true;
     } else {
@@ -40,22 +41,29 @@ export const filtrar = (ropaBD, value, filtrarPor) => {
 
 /* BUSCAR EN TODOS LOS ATRIBUTO */
 export function buscar(ropaBD, item) {
-  let resultadoDeBusqueda = [];
-  resultadoDeBusqueda = resultadoDeBusqueda.concat(
+  let prendasEncontradas = [];
+
+  prendasEncontradas = prendasEncontradas.concat(
     filtrar(ropaBD, item, "nombre")
   );
-  resultadoDeBusqueda = resultadoDeBusqueda.concat(
+
+  prendasEncontradas = prendasEncontradas.concat(
     filtrar(ropaBD, item, "categoria")
   );
-  resultadoDeBusqueda = resultadoDeBusqueda.concat(
+
+  prendasEncontradas = prendasEncontradas.concat(
     filtrar(ropaBD, item, "temporada")
   );
-  resultadoDeBusqueda = resultadoDeBusqueda.concat(
+  prendasEncontradas = prendasEncontradas.concat(
     filtrar(ropaBD, item, "material")
   );
-  resultadoDeBusqueda = resultadoDeBusqueda.concat(
+
+  prendasEncontradas = prendasEncontradas.concat(
     filtrar(ropaBD, item, "descripcion")
   );
+
+  let resultadoDeBusqueda = [...new Map(prendasEncontradas.map((prenda) => [prenda["id"], prenda])).values()];
+
 
   if (resultadoDeBusqueda.length > 0) {
     return resultadoDeBusqueda;

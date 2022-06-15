@@ -1,6 +1,25 @@
-import { poblarGaleriaRopa } from "./galeriaPoblar.js";
-import { ordenarYPoblar, filtrarYPoblar, buscarYPoblar } from "./galeriaFunciones.js"
 import { prendasDB } from "./app.js";
+import { ordenarYPoblar, filtrarYPoblar, buscarYPoblar } from "./galeriaFunciones.js"
+import { ordenarDinamico } from "./helpers/ordenar.js"
+
+/**************************************************/
+/******* AGREGANDO LAS CATEGORÍAS EXISTENTE *******/
+/**************************************************/
+export function agregarListaCategorias(categoriasList) {
+  let categoriaElement = document.getElementById("categoria");
+
+  categoriasList.sort(ordenarDinamico("nombre"));
+  categoriasList.forEach(categoria => {
+    
+    let categoriaItem = document.createElement("a");
+    categoriaItem.classList.add("dropdown-item");
+    categoriaItem.setAttribute("id", categoria.nombre);
+
+    let categoriaNombre = document.createTextNode(categoria.nombre);
+    categoriaItem.appendChild(categoriaNombre);
+    categoriaElement.appendChild(categoriaItem);
+  });
+}
 
 /**************************************************/
 /* AGREGANDO FUNCIONALIDADES DE FILTRO Y BÙSQUEDA */
