@@ -100,6 +100,46 @@ export function galeriaRopa(prendasResultado) {
   }
 }
 
+function limpiarPaginacion(){
+  let paginacionItem = document.getElementById("galeria-paginacion");
+
+  while (paginacionItem.firstChild) {
+    paginacionItem.removeChild(paginacionItem.firstChild);
+  }
+}
+
+/** FUNCIONALIDAD CREAR PAGINACIÓN DE GALERĪA **/
+/** Calcular la cantidad de páginas y agregarlas
+ ** al item de paginación con el estilo correspon-
+ ** diente. **/
+function agregarPaginacion(itemsLength){
+  let itemsPorPagina = 6;
+  let cantPaginas = 0;
+  let paginacionItem = document.getElementById("galeria-paginacion");
+  let isActive = "";
+  
+  if (itemsLength > 0){
+    cantPaginas = Math.ceil(itemsLength / itemsPorPagina);
+  }
+
+  limpiarPaginacion();
+
+  for (let i = 0; i < cantPaginas; i++) {
+    let numPagina = document.createElement("li");
+
+    isActive = (i === 0) ? "page-item active" : "page-item";
+    numPagina.setAttribute("id", `pag-${i+1}`);
+    numPagina.classList.add("page-item");
+    numPagina.innerHTML = `
+      <li class="${isActive}">
+        <a class="page-link btn waves-effect waves-ligth">${i+1}</a>
+      </li>
+    `;
+ 
+    paginacionItem.appendChild(numPagina);
+  }
+}
+
 /** POBLAR LA GALERIA DE ROPA **/
 /* Limpiar los resultados de búsqueda
  * Crear Galería
@@ -109,4 +149,5 @@ export function poblarGaleriaRopa(db) {
   db.length > 0 ? galeriaRopa(db) : galeriaNoEncontrada();
   agregarBtnComprar();
   agregarBtnInfo();
+  agregarPaginacion(db.length);
 }

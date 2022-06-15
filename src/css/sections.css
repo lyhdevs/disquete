@@ -159,6 +159,21 @@ button {
     font-size: 3.3rem;
 }
 
+/* Paginación */
+.pg-rosa {
+    justify-content: center;
+}
+
+.pg-rosa .page-item .page-link {
+    color: var(--rosa-oscuro);
+}
+
+.pg-rosa .active .page-link {
+    background-color: var(--rosa-oscuro);
+    color: white;
+    border-color: var(--rosa-claro);
+}
+
 /*** OUTFITS SECTION ***/
 #curve-top {
     display: inline-block;
