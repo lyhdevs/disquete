@@ -1,20 +1,42 @@
+import { prendasDB } from "./app.js";
+import { limpiarBusqueda, limpiarPaginacion } from "./galeriaLimpiar.js";
+import { seleccionarPagina } from "./galeriaPaginar.js";
 import { filtrar } from "./helpers/filtros.js";
 import { whatsappMessage } from "./helpers/mensajes.js";
-import { prendasDB } from "./app.js";
 
 /* Variables Globales */
 export let resultado = document.getElementById("resultado");
 export let msgOops = "<p>Ooops, no encontramos tu prenda 🤭</p>";
 
-/*** FUNCIONALIDAD LIMPIAR BUSQUEDA ***/
-export function limpiarBusqueda() {
-  resultado.innerHTML = "";
-  document.getElementById("galeria-dg").innerHTML = "";
-  document.getElementById("item-buscado").value = "";
-}
+/** FUNCIONALIDAD CREAR PAGINACIÓN DE GALERĪA **
+ * Calcular la cantidad de páginas y agregarlas
+ * al item de paginación con el estilo correspon-
+ * diente. **/
+ function agregarPaginacion(itemsLength){
+  let itemsPorPagina = 6;
+  let totPaginas = 0;
+  let paginacionItem = document.getElementById("galeria-paginacion");
+  
+  if (itemsLength > 0){
+    totPaginas = Math.ceil(itemsLength / itemsPorPagina);
+  }
 
-/*** FUNCIONALIDADES DE LA TARJETA "PRENDA" ***/
-/* Botón "Más info": muestra información completa de la prenda
+  limpiarPaginacion();
+
+  for (let i = 0; i < totPaginas; i++) {
+    let numPagina = document.createElement("li");
+
+    numPagina.setAttribute("id", `pag-${i+1}`);
+    numPagina.classList.add("page-item");
+    (i === 0) ? numPagina.classList.add("active") : "";
+    numPagina.innerHTML = `<a class="page-link btn waves-effect waves-ligth">${i+1}</a>`;
+    numPagina.addEventListener("click", e => seleccionarPagina(e, totPaginas));
+    
+    paginacionItem.appendChild(numPagina);
+  }
+}
+/*** FUNCIONALIDADES DE LA TARJETA "PRENDA" ***
+ * Botón "Más info": muestra información completa de la prenda
  * Botón "Comprar": Envía un mensaje de whatsapp con el nombre de la prenda seleccionada */
 export function agregarBtnInfo() {
   let botonesMasInfo = document.getElementsByClassName("btn-mas-info");
@@ -100,59 +122,8 @@ export function galeriaRopa(prendasResultado) {
   }
 }
 
-function limpiarPaginacion(){
-  let paginacionItem = document.getElementById("galeria-paginacion");
-
-  while (paginacionItem.firstChild) {
-    paginacionItem.removeChild(paginacionItem.firstChild);
-  }
-}
-
-function seleccionarPagina(e, totPaginas){
-  e.preventDefault();
-
-  let paginaSeleccionada = e.target.textContent;
-  let paginasItems = document.querySelectorAll(".page-item");
-
-  paginasItems.forEach(item => {
-    item.classList.remove("active");
-  });
-  document.getElementById(`pag-${paginaSeleccionada}`).classList.add("active");
-
-  //Mostrar items en la página seleccionada
-  if (paginaSeleccionada < 1 || paginaSeleccionada > totPaginas) return false;
-}
-
-/** FUNCIONALIDAD CREAR PAGINACIÓN DE GALERĪA **/
-/** Calcular la cantidad de páginas y agregarlas
- ** al item de paginación con el estilo correspon-
- ** diente. **/
-function agregarPaginacion(itemsLength){
-  let itemsPorPagina = 6;
-  let totPaginas = 0;
-  let paginacionItem = document.getElementById("galeria-paginacion");
-  
-  if (itemsLength > 0){
-    totPaginas = Math.ceil(itemsLength / itemsPorPagina);
-  }
-
-  limpiarPaginacion();
-
-  for (let i = 0; i < totPaginas; i++) {
-    let numPagina = document.createElement("li");
-
-    numPagina.setAttribute("id", `pag-${i+1}`);
-    numPagina.classList.add("page-item");
-    (i === 0) ? numPagina.classList.add("active") : "";
-    numPagina.innerHTML = `<a class="page-link btn waves-effect waves-ligth">${i+1}</a>`;
-    numPagina.addEventListener("click", e => seleccionarPagina(e, totPaginas));
-    
-    paginacionItem.appendChild(numPagina);
-  }
-}
-
-/** POBLAR LA GALERIA DE ROPA **/
-/* Limpiar los resultados de búsqueda
+/** POBLAR LA GALERIA DE ROPA **
+ * Limpiar los resultados de búsqueda
  * Crear Galería
  * Agregar funcionalidades a cada tarjeta de prenda */
 export function poblarGaleriaRopa(db) {
