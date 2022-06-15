@@ -108,34 +108,45 @@ function limpiarPaginacion(){
   }
 }
 
+function seleccionarPagina(e, totPaginas){
+  e.preventDefault();
+
+  let paginaSeleccionada = e.target.textContent;
+  let paginasItems = document.querySelectorAll(".page-item");
+
+  paginasItems.forEach(item => {
+    item.classList.remove("active");
+  });
+  document.getElementById(`pag-${paginaSeleccionada}`).classList.add("active");
+
+  //Mostrar items en la página seleccionada
+  if (paginaSeleccionada < 1 || paginaSeleccionada > totPaginas) return false;
+}
+
 /** FUNCIONALIDAD CREAR PAGINACIÓN DE GALERĪA **/
 /** Calcular la cantidad de páginas y agregarlas
  ** al item de paginación con el estilo correspon-
  ** diente. **/
 function agregarPaginacion(itemsLength){
   let itemsPorPagina = 6;
-  let cantPaginas = 0;
+  let totPaginas = 0;
   let paginacionItem = document.getElementById("galeria-paginacion");
-  let isActive = "";
   
   if (itemsLength > 0){
-    cantPaginas = Math.ceil(itemsLength / itemsPorPagina);
+    totPaginas = Math.ceil(itemsLength / itemsPorPagina);
   }
 
   limpiarPaginacion();
 
-  for (let i = 0; i < cantPaginas; i++) {
+  for (let i = 0; i < totPaginas; i++) {
     let numPagina = document.createElement("li");
 
-    isActive = (i === 0) ? "page-item active" : "page-item";
     numPagina.setAttribute("id", `pag-${i+1}`);
     numPagina.classList.add("page-item");
-    numPagina.innerHTML = `
-      <li class="${isActive}">
-        <a class="page-link btn waves-effect waves-ligth">${i+1}</a>
-      </li>
-    `;
- 
+    (i === 0) ? numPagina.classList.add("active") : "";
+    numPagina.innerHTML = `<a class="page-link btn waves-effect waves-ligth">${i+1}</a>`;
+    numPagina.addEventListener("click", e => seleccionarPagina(e, totPaginas));
+    
     paginacionItem.appendChild(numPagina);
   }
 }
