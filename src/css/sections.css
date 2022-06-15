@@ -211,6 +211,12 @@ button {
     padding: 10px 23px;
 }
 
+.rosa-btn:hover {
+    background-color: var(--rosa-claro);
+    color: var(--rosa-oscuro);
+    text-decoration: none;
+}
+
 .outfit-info {
     text-align: left;
     font-size: 1.125rem;
