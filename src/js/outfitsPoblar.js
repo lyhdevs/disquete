@@ -18,15 +18,15 @@ export function galeriaOutfits(outfitsDB) {
 
     outfitElement.innerHTML = `
             <div class="row align-items-center">
-                <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="col-md-7 col-sm-9 col-xs-12">
                     <img class="outfit-img"
                     src="${outfit.imgUrl}" />
                 </div>
-                <div class="col-md-5 col-sm-6 col-xs-6">
+                <div class="col-md-4 col-sm-9 col-xs-9">
                     <div class="outfit-info">
                         <h4>${outfit.nombre}</h4>
                         <h5>${outfit.descripcion}</h5>
-                        ${itemElements}
+                        <ul> ${itemElements} </ul>
                         <p>${outfit.nota}</p>
                         <a type="button" class="rosa-btn btn-comprar-o" target="_blank" value="${outfit.id}">Lo quiero!</a>
                     </div>
