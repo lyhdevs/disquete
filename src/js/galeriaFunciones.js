@@ -31,3 +31,4 @@ export function buscarYPoblar(e, ropaBD) {
 
   return resultadoBusqueda;
 }
+
