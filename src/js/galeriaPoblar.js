@@ -1,20 +1,42 @@
+import { prendasDB } from "./app.js";
+import { limpiarBusqueda, limpiarPaginacion } from "./galeriaLimpiar.js";
+import { seleccionarPagina, totalPaginas, mostrarItemsPorPagina } from "./galeriaPaginar.js";
 import { filtrar } from "./helpers/filtros.js";
 import { whatsappMessage } from "./helpers/mensajes.js";
-import { prendasDB } from "./app.js";
 
 /* Variables Globales */
 export let resultado = document.getElementById("resultado");
 export let msgOops = "<p>Ooops, no encontramos tu prenda 🤭</p>";
 
-/*** FUNCIONALIDAD LIMPIAR BUSQUEDA ***/
-export function limpiarBusqueda() {
-  resultado.innerHTML = "";
-  document.getElementById("galeria-dg").innerHTML = "";
-  document.getElementById("item-buscado").value = "";
-}
+/** FUNCIONALIDAD CREAR PAGINACIÓN DE GALERĪA **
+ * Calcular la cantidad de páginas y agregarlas
+ * al item de paginación con el estilo correspon-
+ * diente. **/
+ function agregarPaginacion(itemsLength){
+  let totPaginas = 0;
 
-/*** FUNCIONALIDADES DE LA TARJETA "PRENDA" ***/
-/* Botón "Más info": muestra información completa de la prenda
+
+  let paginacionItem = document.getElementById("galeria-paginacion");
+  
+  totPaginas = totalPaginas(itemsLength);
+  limpiarPaginacion();
+
+  for (let i = 0; i < totPaginas; i++) {
+    let numPagina = document.createElement("li");
+
+    numPagina.setAttribute("id", `pag-${i+1}`);
+    numPagina.classList.add("page-item");
+    (i === 0) ? numPagina.classList.add("active") : "";
+    numPagina.innerHTML = `<a class="page-link btn waves-effect waves-ligth">${i+1}</a>`;
+    numPagina.addEventListener("click", e => seleccionarPagina(e, totPaginas));
+    
+    paginacionItem.appendChild(numPagina);
+  }
+  
+  mostrarItemsPorPagina(1);
+}
+/*** FUNCIONALIDADES DE LA TARJETA "PRENDA" ***
+ * Botón "Más info": muestra información completa de la prenda
  * Botón "Comprar": Envía un mensaje de whatsapp con el nombre de la prenda seleccionada */
 export function agregarBtnInfo() {
   let botonesMasInfo = document.getElementsByClassName("btn-mas-info");
@@ -100,8 +122,8 @@ export function galeriaRopa(prendasResultado) {
   }
 }
 
-/** POBLAR LA GALERIA DE ROPA **/
-/* Limpiar los resultados de búsqueda
+/** POBLAR LA GALERIA DE ROPA **
+ * Limpiar los resultados de búsqueda
  * Crear Galería
  * Agregar funcionalidades a cada tarjeta de prenda */
 export function poblarGaleriaRopa(db) {
@@ -109,4 +131,5 @@ export function poblarGaleriaRopa(db) {
   db.length > 0 ? galeriaRopa(db) : galeriaNoEncontrada();
   agregarBtnComprar();
   agregarBtnInfo();
+  agregarPaginacion(db.length);
 }

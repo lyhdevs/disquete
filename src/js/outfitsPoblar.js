@@ -53,7 +53,7 @@ function agregarBtnComprarOutfit(outfitsDB) {
 
 /*** FUNCIONALIDAD GALERIA NO ENCONTRADA ***/
 function outfitsNoEncontrados() {
-    document.getElementById("services").style.display = "none";
+    document.getElementById("outfits").style.display = "none";
 }
 
 /** POBLAR LA SECCIÓN DE OUTFITS **/
