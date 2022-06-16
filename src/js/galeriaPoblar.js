@@ -1,6 +1,6 @@
 import { prendasDB } from "./app.js";
 import { limpiarBusqueda, limpiarPaginacion } from "./galeriaLimpiar.js";
-import { seleccionarPagina } from "./galeriaPaginar.js";
+import { seleccionarPagina, totalPaginas, mostrarItemsPorPagina } from "./galeriaPaginar.js";
 import { filtrar } from "./helpers/filtros.js";
 import { whatsappMessage } from "./helpers/mensajes.js";
 
@@ -13,14 +13,12 @@ export let msgOops = "<p>Ooops, no encontramos tu prenda 🤭</p>";
  * al item de paginación con el estilo correspon-
  * diente. **/
  function agregarPaginacion(itemsLength){
-  let itemsPorPagina = 6;
   let totPaginas = 0;
+
+
   let paginacionItem = document.getElementById("galeria-paginacion");
   
-  if (itemsLength > 0){
-    totPaginas = Math.ceil(itemsLength / itemsPorPagina);
-  }
-
+  totPaginas = totalPaginas(itemsLength);
   limpiarPaginacion();
 
   for (let i = 0; i < totPaginas; i++) {
@@ -34,6 +32,8 @@ export let msgOops = "<p>Ooops, no encontramos tu prenda 🤭</p>";
     
     paginacionItem.appendChild(numPagina);
   }
+  
+  mostrarItemsPorPagina(1);
 }
 /*** FUNCIONALIDADES DE LA TARJETA "PRENDA" ***
  * Botón "Más info": muestra información completa de la prenda

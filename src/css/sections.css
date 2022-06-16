@@ -99,6 +99,10 @@
     display: block;
 }
 
+.galeria-resultado .py-5 {
+    padding-bottom: 0 !important;
+}
+
 .btn-darkpink,
 .btn-darkpink:hover {
     background-color: var(--rosa-oscuro);
