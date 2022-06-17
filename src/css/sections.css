@@ -274,7 +274,8 @@ button {
  
     position: relative;
     min-height: 100vh;
-    padding: 50px 50px;
+    padding: 70px 70px;
+    
     justify-content: center;
     align-items: center;
     text-align:center;
@@ -321,20 +322,21 @@ span{
 .contact {
     position: relative;
     min-height: 100vh;
-    padding: 50px 100px;
+    padding: 1% 10%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: rgb(253, 240, 253);
+    background-color: rgb(253, 240, 253);
     background-size: cover;
-   
-     
+    
 }
 
 .contact .content {
-    max-width: 800px;
+   
     text-align: center;
+    padding: 1% 10%;
+    
 }
 
 .contact .content h6 {
@@ -355,25 +357,30 @@ span{
     justify-content: center;
     align-items: center;
     margin-top: 30px;
+    padding: 1% 1%;
+    
+    
 }
 
 .cont.contactInfo {
-    width: 50%;
+   
     display: flex;
     flex-direction: column;
+    margin: 20px;
+    
 }
 
 .cont-contact .contactInfo .box {
     position: relative;
     padding: 20px 0;
     display: flex;
+    
   
    
 }
 
 .cont-contact .contactInfo .box .icon {
     margin-left: 2px;
-
     min-width: 60px;
     height: 60px;
     background: #47c1f1;
@@ -407,6 +414,7 @@ span{
 }
 
 .contactRedes .box-redes .redes {
+    width: 100%;
     padding: 20px 0;
     display: grid;
     gap: 10px;
@@ -422,12 +430,9 @@ span{
 }
 
 .map {
-    width: 50%;
-    padding: 10px;
-    margin-left: 30px;
-    margin-right: 10px;
-
- 
+    border: 2px solid res;
+    margin-left: 20px;
+    width: 100%;
 
 }
 
@@ -465,6 +470,7 @@ footer {
 
 
 /*** MEDIA QUERY ***/
+
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
