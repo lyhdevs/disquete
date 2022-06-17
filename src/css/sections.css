@@ -489,6 +489,23 @@ footer {
         padding: 1% 1%;
           
     }
+    .main-nosotras{
+ padding:10% 10%;
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        
+   
+    }
+    .main-nosotras img{
+     
+        width:350px;
+        height:350px;
+        z-index: 1;
+        margin-left: 50px;
+        justify-content:center;
+        
+        
+    } 
 
 }
 
