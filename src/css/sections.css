@@ -358,6 +358,8 @@ span{
     align-items: center;
     margin-top: 30px;
     padding: 1% 1%;
+    display:grid;
+    gap: 6rem;
     
     
 }
@@ -414,11 +416,11 @@ span{
 }
 
 .contactRedes .box-redes .redes {
-    width: 100%;
+    
     padding: 20px 0;
     display: grid;
     gap: 10px;
-
+ 
 }
 
 .contactRedes .box-redes .redes .icon {
@@ -430,8 +432,9 @@ span{
 }
 
 .map {
-    border: 2px solid res;
+    border: 2px solid #e70dc3;
     margin-left: 20px;
+    margin-right: 20px;
     width: 100%;
 
 }
@@ -477,6 +480,16 @@ footer {
     .big-heading {
         font-size: 6.75rem;
     }
+    .cont-contact {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        padding: 1% 1%;
+          
+    }
+
 }
 
 /* Large devices (laptops/desktops) */
@@ -510,7 +523,7 @@ footer {
     .main-nosotras{
 
     }
-   
+     
 }
 
 
