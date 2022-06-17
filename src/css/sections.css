@@ -84,6 +84,11 @@
 }
 
 /*** GALLERY SECTION ***/
+.gallery-section, .gallery-section .container-fluid {
+    min-height: auto;
+    height: auto;
+}
+
 .gallery-section .row {
     align-content: center;
     height: auto;
@@ -93,10 +98,15 @@
     display: flex;
     justify-content: center;
     place-content: space-evenly;
+    margin-bottom: 22px;
 }
 
 .galeria-resultado {
     display: block;
+}
+
+.galeria-resultado .py-5 {
+    padding-bottom: 0 !important;
 }
 
 .btn-darkpink,
@@ -159,6 +169,27 @@ button {
     font-size: 3.3rem;
 }
 
+/* Paginación */
+#galeria-paginacion {
+    margin-bottom: 0;
+}
+
+.pg-lila {
+    justify-content: center;
+}
+
+.pg-lila .page-item .page-link {
+    color: var(--lila-oscuro);
+}
+
+.pg-lila .active .page-link {
+    background-color: var(--lila-oscuro);
+    color: white;
+    border-color: var(--lila-claro);
+}
+
+
+
 /*** OUTFITS SECTION ***/
 #curve-top {
     display: inline-block;
@@ -181,7 +212,7 @@ button {
     height: 50px
 }
 
-.services-section {
+.outfits-section {
     margin-top: -57px;
     padding-bottom: 50px;
     min-height: 100vh;
@@ -189,7 +220,7 @@ button {
     background: var(--celeste-claro);
 }
 
-.services-section .container-fluid .row {
+.outfits-section .container-fluid .row {
     align-content: center;
 }
 
@@ -685,7 +716,7 @@ footer {
     }
 
     /* Outfits Section */
-    .services-section {
+    .outfits-section {
         padding-top: 6rem;
     }
 
@@ -748,6 +779,11 @@ footer {
     }
 
     /* Outfits Section */
+
+    .outfits-section {
+        margin-top: 0;
+    }
+
     #carrouselOutfits .carousel-indicators {
         display: flex;
     }
@@ -779,12 +815,21 @@ footer {
 
     .galeria-filtro {
         padding: 0;
+        margin-bottom: 0;
     }
 
     .dropdown-toggle,
     .dropdown-item {
         padding: 0.3rem 0.38rem;
         font-size: 0.7rem;
+    }
+
+    .row-filtrar .btn {
+        margin-bottom: 5px;
+    }
+
+    .row-filtrar .btn:last-child {
+        margin-bottom: 0;
     }
 
     #resultado p {
@@ -796,7 +841,7 @@ footer {
         display: none;
     }
 
-    .services-section {
+    .outfits-section {
         min-height: 30vh;
         padding-top: 2rem;
         padding-bottom: 2rem;

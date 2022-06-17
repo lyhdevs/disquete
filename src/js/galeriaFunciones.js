@@ -12,11 +12,11 @@ export function filtrarYPoblar(e, ropaBD, filtro) {
   e.preventDefault();
 
   const value = e.target.id.toLowerCase();
-  
+
   poblarGaleriaRopa(filtrar(ropaBD, value, filtro));
 }
 
-export function buscarYPoblar(e, ropaBD){
+export function buscarYPoblar(e, ropaBD) {
   e.preventDefault();
 
   let resultadoBusqueda = [];
@@ -24,8 +24,11 @@ export function buscarYPoblar(e, ropaBD){
 
   if (item) {
     resultadoBusqueda = buscar(ropaBD, item);
-    resultadoBusqueda !== -1 ? poblarGaleriaRopa(resultadoBusqueda) : galeriaNoEncontrada();
+    resultadoBusqueda !== -1
+      ? poblarGaleriaRopa(resultadoBusqueda)
+      : galeriaNoEncontrada();
   }
 
   return resultadoBusqueda;
 }
+

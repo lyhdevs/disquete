@@ -48,7 +48,6 @@ getDocs(collection(db,'categorias')).then((snapshot) => {
     categoriasList.push(doc.data());
   });
 
-  console.log(categoriasList);
   agregarListaCategorias(categoriasList);
 });
 
