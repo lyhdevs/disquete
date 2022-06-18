@@ -300,16 +300,237 @@ button {
 .carousel-control-next {
     right: -50px;
 }
+/***NOSOTRAS ***/
+.main-nosotras{
+ 
+    position: relative;
+    min-height: 100vh;
+    padding: 70px 70px;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    background: white;
+    background-size: cover;
+    justify-content: auto;
+    display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+   
+}
+
+ h6{
+  
+    font-size: 50px;
+    color:#D11E84;
+}
+#descripcion{
+    font-size: 20px;
+}
+span{
+    color: #9B7AB1;
+}
+.mas-info{
+    padding: 10px 20px;
+    background-color:#9B7AB1;
+    border:none;
+    border-radius:20px;
+    margin-top: 10px;
+    cursor:pointer;
+    box-shadow: 1px 3px 11px -5px;
+}
+.main-nosotras img{
+    border: 7px solid #9B7AB1;
+    width:250px;
+    height:250px;
+    z-index: 1;
+    margin-left: 50px;
+    margin-right: 50px;
+} 
+/***CONTACTANOS ***/
+.contact {
+    position: relative;
+    min-height: 100vh;
+    padding: 1% 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(253, 240, 253);
+    background-size: cover;
+    
+}
+
+.contact .content {
+   
+    text-align: center;
+    padding: 1% 10%;
+    
+}
+
+.contact .content h6 {
+    font-size: 42px;
+    font-weight: 500;
+    color: #0f0f0f;
+}
+
+.contact .content p {
+    font-size: 30px;
+    font-weight: 300;
+    color: black;
+}
+
+.cont-contact {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    padding: 1% 1%;
+    display:grid;
+    gap: 6rem;
+    
+    
+}
+
+.cont.contactInfo {
+   
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    
+}
+
+.cont-contact .contactInfo .box {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+    
+  
+   
+}
+
+.cont-contact .contactInfo .box .icon {
+    margin-left: 2px;
+    min-width: 60px;
+    height: 60px;
+    background: #47c1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 22px;
+
+}
+
+.cont-contact .contactInfo .box .text {
+
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: rgb(7, 0, 0);
+    flex-direction: column;
+    font-weight: 300;
+
+}
+
+.cont-contact .contactInfo .box .text h7 {
+    font-weight: 500;
+    color: rgb(245, 10, 253);
+}
+
+.contactRedes {
+    text-align: center;
+    columns: 3 80px;
+}
+
+.contactRedes .box-redes .redes {
+    
+    padding: 20px 0;
+    display: grid;
+    gap: 10px;
+ 
+}
+
+.contactRedes .box-redes .redes .icon {
+    color: #e70dc3;
+    font-size: 50px;
+    margin-top: 0;
+
+
+}
+
+.map {
+    border: 2px solid #e70dc3;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%;
+
+}
+
+/*** footer***/
+
+footer {
+    min-height: 120px;
+    padding: 1% 10%;
+    background-color: rgb(253, 240, 253);
+    color: var(--main-light-color);
+    text-align: center;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(185, 185, 185, 0.15);
+}
+
+.footer-data{
+    align-self: center;
+}
+
+#tienda-nombre {
+    font-weight: 600;
+}
+
+.footer-dev {
+    font-size: 0.75rem;
+}
+
+.footer-dev a:hover {
+    color: var(--main-light-color);
+    font-size: 0.82rem;
+}
 
 /*** MEDIA QUERY ***/
+
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
     .big-heading {
         font-size: 6.75rem;
     }
-}
+    .cont-contact {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        padding: 1% 1%;
+          
+    }
+    .main-nosotras{
+ padding:10% 10%;
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        
+   
+    }
+    .main-nosotras img{ 
+        width:350px;
+        height:350px;
+        z-index: 1;
+        margin-left: 50px;
+        justify-content:center;
+     
+    } 
 
+}
 /* Large devices (laptops/desktops) */
 @media only screen and (max-width: 1200px) {
     .big-heading {
@@ -391,6 +612,7 @@ button {
 
     /* Outfits Section */
     #curve-top {
+        
         border-bottom-left-radius: 85% 100px !important;
         border-bottom-right-radius: 85% 100px !important;
     }
