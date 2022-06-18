@@ -37,7 +37,7 @@
       <div class="navbar-nav ml-auto">
         <a href="#inicio" class="nav-item nav-link">INICIO</a>
         <a href="#galeria" class="nav-item nav-link">TIENDA</a>
-        <a href="#services" class="nav-item nav-link">OUTFITS</a>
+        <a href="#outfits" class="nav-item nav-link">OUTFITS</a>
         <a href="#nosotras" class="nav-item nav-link">NOSOTRAS</a>
         <a href="#contactanos" class="nav-item nav-link">CONTÁCTANOS</a>
         <a href="#" class="nav-item nav-link"><i class="fa-solid fa-user"></i></a>
@@ -94,6 +94,7 @@
   <!--Galeria Section-->
   <section id="galeria" class="gallery-section">
     <div class="container-fluid">
+      <!-- Filtros y Búsqueda -->
       <div class="col-lg-10 galeria-filtro">
         <div class="row-filtrar">
           <div class="btn-group">
@@ -138,8 +139,17 @@
             </form>
           </div>
         </div>
-
       </div>
+
+      <div class="row">
+        <nav>
+          <ul id="galeria-paginacion" class="pagination pg-lila mt-2">
+            <!-- PAGINACIÓN ACORDE A LA CANTIDAD DE ITEMS -->
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Galería de prendas -->
       <div class="row galeria-resultado">
         <div class="album py-5">
           <div class="container">
@@ -156,26 +166,8 @@
 
   <div id="curve-top"></div>
 
-   <!-- nosotras-->
-   <section class="main-nosotras" id="nosotras">
-    <div class="info-nootras">
-      <h6 class="title">Somos Disquete Galaxico </h6>
-      <p id="descripcion">Hola! Somos Meli y Lore <span>, parte del equipo de disquete galaxico</span>  te ofrecemos un estilo diferente, buscamos tu mejor versión con nuestras prendas. Además tenemos ofertas y todo esta al alcance del cliente.</p>
-      <!--<a dowload href="#">
-        <button class="mas-info" > Más info</button>
-      </a>-->
-    </div>
-    <img src="./img/disquete.jpg " alt="">
-  </section>
-  
-
-  <div id="curve-bottom"></div>
- 
-
   <!-- Outfits Section-->
-  
-  <section id="services" class="services-section">
-   
+  <section id="outfits" class="outfits-section">
     <div class="container-fluid">
       <div id="carrouselOutfits" class="carousel slide" data-ride="carousel">
         <div id="galeria-outfits" class="carousel-inner">
@@ -199,93 +191,91 @@
     </div>
   </section>
   <div id="curve-bottom"></div>
- 
+
 
    <!-- contactanos -->
    <section class="contact" id="contactanos">
-
-     <div class="content">
-        <h1>CONTÁCTANOS</h1>
-        <p> Puedes encontrarnos por cualquiera de estos medios:</p>
-       <div class="contactRedes"> 
-         <div class="box-redes">
-             <div class="redes">
-              <a class="icon"target=”_blank” href="https://www.instagram.com/disquetegalaxico/">
-                <ion-icon name="logo-instagram"></ion-icon></ion-icon>
-              </a>
-               <div class="text">
-                
-              </div>
+    <div class="content">
+      <h6>CONTÁCTANOS</h6>
+      <p> Puedes encontrarnos por cualquiera de estos medios:</p>
+      <div class="contactRedes">
+        <div class="box-redes">
+          <div class="redes">
+            <div class="icon">
+              <ion-icon name="logo-instagram"></ion-icon>
+              </ion-icon>
             </div>
-            <div class="redes">
-               <a class="icon"target=”_blank” href="https://www.facebook.com/profile.php?id=100070070367005">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a>
-               <div class="text">
-                 
-               </div>
-           </div>
-            <div class="redes">
-               <a class="icon"target=”_blank” href="https://www.tiktok.com/@disquetegalaxico">
-                <ion-icon name="logo-tiktok"></ion-icon>
-              </a>
-               <div class="text">
-               
-               </div>
+            <div class="text">
+              <h7>Instagram</h7>
             </div>
-         </div>
-        </div> 
+          </div>
+          <div class="redes">
+            <div class="icon">
+              <ion-icon name="logo-facebook"></ion-icon>
+              </ion-icon>
+            </div>
+            <div class="text">
+              <h7>Facebook</h7>
+            </div>
+          </div>
+          <div class="redes">
+            <div class="icon">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+            </div>
+            <div class="text">
+              <h7>Whatsapp</h7>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-      <div class="cont-contact"  >
-        <div class="contactInfo">
-          <div class="box">
-            <div class="icon"><ion-icon name="location-outline"></ion-icon></div>
-            <div class="text">
-              <h7>Address</h7>
-              <p>Calle molino del gato 388, <br>LIMA CERCADO - PERÚ</p>
-            </div>
+    <div class="cont-contact">
+      <div class="contactInfo">
+        <div class="box">
+          <div class="icon">
+            <ion-icon name="location-outline"></ion-icon>
           </div>
-          <div class="box">
-            <div class="icon"><ion-icon name="location-outline"></ion-icon></div>
-            <div class="text">
-              <h7>Address</h7>
-              <p>Calle la Coruña 217, <br>ATE - PERÚ</p>
-            </div>
-          </div>
-          <div class="box">
-            <div class="icon"><ion-icon name="call-outline"></ion-icon></div>
-            <div class="text">
-              <h7>Phone</h7>
-              <p>+51 952 084 971 / +51 944 235 148</p>
-            </div>
-          </div>
-          <div class="box">
-            <div class="icon"><ion-icon name="mail-outline"></ion-icon></div>
-            <div class="text">
-              <h7>E-mail</h7>
-              <p>disquetegalaxico@gmail.com</p>
-            </div>
+          <div class="text">
+            <h7>Address</h7>
+            <p>Calle molino del gato 388, <br>LIMA CERCADO - PERÚ</p>
           </div>
         </div>
-        <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.9202936406473!2d-77.05111138608035!3d-12.049005045220586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8d1141cc92f%3A0x7269bd920bd694b8!2sMolino%20del%20Gato%20388%2C%20Bre%C3%B1a%2015082!5e0!3m2!1ses-419!2spe!4v1655155424516!5m2!1ses-419!2spe" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="box">
+          <div class="icon">
+            <ion-icon name="location-outline"></ion-icon>
+          </div>
+          <div class="text">
+            <h7>Address</h7>
+            <p>Calle la Coruña 217, <br>ATE - PERÚ</p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="icon">
+            <ion-icon name="call-outline"></ion-icon>
+          </div>
+          <div class="text">
+            <h7>Phone</h7>
+            <p>+51 952 084 971 / +51 944 235 148</p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="icon">
+            <ion-icon name="mail-outline"></ion-icon>
+          </div>
+          <div class="text">
+            <h7>E-mail</h7>
+            <p>disquetegalaxico@gmail.com</p>
+          </div>
         </div>
       </div>
-      </div>
-      <!-- map-->
-      
+      <div class="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.9202936406473!2d-77.05111138608035!3d-12.049005045220586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8d1141cc92f%3A0x7269bd920bd694b8!2sMolino%20del%20Gato%20388%2C%20Bre%C3%B1a%2015082!5e0!3m2!1ses-419!2spe!4v1655155424516!5m2!1ses-419!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    </div>
+    <!-- map-->
+
   </section>
-  <footer id="footer" class="">
-    <div class="row" style="min-height: inherit;">
-      <div class="col-lg-12 footer-data">
-        <p class="footer-copy"><span id="tienda-nombre">DISQUETE GALAXICO</span> © Todos Los Derechos Reservados <span
-            id="year"></span></p>
-        <p class="footer-dev">Desarrollado por <a href="" target="_blank">L & H devs</a></p>
-      </div>
-
-    
-    </div>
-  </footer>
 
   <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
@@ -294,7 +284,7 @@
   <script src="js/app.js" type="module"></script>
   <script src="js/main.js" type="module"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
- <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
- 
+
 </html>
