@@ -306,7 +306,6 @@ button {
     position: relative;
     min-height: 100vh;
     padding: 70px 70px;
-    
     justify-content: center;
     align-items: center;
     text-align:center;
@@ -475,7 +474,7 @@ span{
 footer {
     min-height: 120px;
     padding: 1% 10%;
-    background-color: var(--main-dark-color);
+    background-color: rgb(253, 240, 253);
     color: var(--main-light-color);
     text-align: center;
     text-transform: uppercase;
@@ -498,10 +497,6 @@ footer {
     color: var(--main-light-color);
     font-size: 0.82rem;
 }
-
-
-
-
 
 /*** MEDIA QUERY ***/
 
@@ -527,15 +522,13 @@ footer {
         
    
     }
-    .main-nosotras img{
-     
+    .main-nosotras img{ 
         width:350px;
         height:350px;
         z-index: 1;
         margin-left: 50px;
         justify-content:center;
-        
-        
+     
     } 
 
 }
@@ -568,9 +561,7 @@ footer {
     .outfit-info li {
         font-size: 0.925rem;
     }
-    .main-nosotras{
-
-    }
+ 
      
 }
 
