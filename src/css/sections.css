@@ -330,15 +330,7 @@ button {
 span{
     color: #9B7AB1;
 }
-.mas-info{
-    padding: 10px 20px;
-    background-color:#9B7AB1;
-    border:none;
-    border-radius:20px;
-    margin-top: 10px;
-    cursor:pointer;
-    box-shadow: 1px 3px 11px -5px;
-}
+
 .main-nosotras img{
     border: 7px solid #9B7AB1;
     width:250px;
@@ -347,6 +339,7 @@ span{
     margin-left: 50px;
     margin-right: 50px;
 } 
+
 /***CONTACTANOS ***/
 .contact {
     position: relative;
@@ -379,32 +372,72 @@ span{
     font-weight: 300;
     color: black;
 }
+.contactRedes {
+    text-align: center;
+    columns: 3 80px;
+}
+
+.contactRedes .box-redes .redes {
+    
+    padding: 20px 0;
+    display: grid;
+    gap: 10px;
+ 
+}
+
+.contactRedes .box-redes .redes .icon {
+    
+    color: #e70dc3;
+    font-size: 50px;
+    margin-top: 0;
+
+
+}
 
 .cont-contact {
-    width: 100%;
-    display: flex;
+    position: relative;
+    min-height: 100vh;
+    padding: 70px 70px;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
-    padding: 1% 1%;
-    display:grid;
-    gap: 6rem;
-    
+    text-align:center;
+    background-size: cover;
+    justify-content: auto;
+    display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
     
 }
 
-.cont.contactInfo {
-   
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    
+.clearfix{
+    clear:both;
+    float:none;
 }
+
+.cont-contact{
+    padding: 20% 0;
+    margin:0 auto;
+}
+.cont-contact .contactInfo {
+    width:100%;
+    margin:0 auto;
+    border-radius:15%;   
+  
+
+}
+iframe{
+    width:100%;
+    border-radius: 15%;
+   justify-content:center;
+}
+
 
 .cont-contact .contactInfo .box {
     position: relative;
     padding: 20px 0;
     display: flex;
+    
     
   
    
@@ -414,7 +447,7 @@ span{
     margin-left: 2px;
     min-width: 60px;
     height: 60px;
-    background: #47c1f1;
+    background: #e70dc3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -439,34 +472,9 @@ span{
     color: rgb(245, 10, 253);
 }
 
-.contactRedes {
-    text-align: center;
-    columns: 3 80px;
-}
-
-.contactRedes .box-redes .redes {
-    
-    padding: 20px 0;
-    display: grid;
-    gap: 10px;
- 
-}
-
-.contactRedes .box-redes .redes .icon {
-    color: #e70dc3;
-    font-size: 50px;
-    margin-top: 0;
 
 
-}
 
-.map {
-    border: 2px solid #e70dc3;
-    margin-left: 20px;
-    margin-right: 20px;
-    width: 100%;
-
-}
 
 /*** footer***/
 
@@ -504,15 +512,7 @@ footer {
     .big-heading {
         font-size: 6.75rem;
     }
-    .cont-contact {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 30px;
-        padding: 1% 1%;
-          
-    }
+   
     .main-nosotras{
  padding:10% 10%;
         display:grid;
@@ -528,6 +528,31 @@ footer {
         justify-content:center;
      
     } 
+    .cont-contact {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        padding: 4% 0%;
+          
+    }
+    
+   .cont-contact .contactInfo {
+  
+    width:43%;
+    margin:1%;
+    padding:2%;
+    float: left;
+    background-color:white;
+    border-radius:15%;
+      
+
+   }
+   iframe{
+    border-radius: 15%;
+   }
+
 
 }
 /* Large devices (laptops/desktops) */
@@ -558,6 +583,9 @@ footer {
     .outfit-info li {
         font-size: 0.925rem;
     }
+    
+      
+ 
 }
 
 
