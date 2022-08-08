@@ -2,6 +2,18 @@ import { prendasDB } from "./app.js";
 import { ordenarYPoblar, filtrarYPoblar, buscarYPoblar } from "./galeriaFunciones.js"
 import { ordenarDinamico } from "./helpers/ordenar.js"
 
+/******* DATOS GENERALES *******/
+
+const today = new Date();
+const year = today.getFullYear();
+const devsurl = "https://lyhdevs.github.io/lhdevs/";
+  
+const yearTag = $("#year");
+const devsLink = $("#devslink");
+
+yearTag.text(year);
+devsLink.attr("href", devsurl);
+
 /**************************************************/
 /******* AGREGANDO LAS CATEGORÍAS EXISTENTE *******/
 /**************************************************/
